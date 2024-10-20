@@ -1,4 +1,10 @@
-After clone repository
+
+For clone:
+use --recursive with git clone for clone submodule
+you can also use git submodule init and git submodule update
 
 For install git hooks:
 run .scripts/install_hooks.sh
+
+For update submodule:
+use git submodule update
