@@ -1,0 +1,4 @@
+After clone repository
+
+For install git hooks:
+run .scripts/install_hooks.sh
