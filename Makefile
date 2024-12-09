@@ -10,6 +10,8 @@ LIBFT := $(PATH_LIBFT)libft.a
 
 PATH_SRCS += srcs/
 
+SRCS += main.c
+
 vpath %.c $(PATH_SRCS)
 
 ### OBJS ######################################################################
@@ -33,7 +35,7 @@ CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 
-ifeq($(sanitize), true)
+ifeq ($(sanitize), true)
 	CFLAGS += -fsanitize=address,undefined -g3
 endif
 
