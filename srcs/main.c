@@ -6,16 +6,26 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/09 16:27:20 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/09 18:33:02 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(void)
+static int	core_routine(void)
 {
 	while (LOOP)
 	{
 	}
-	return (0);
+	return (EXIT_SUCCESS);
+}
+
+static int	launch_shell(void)
+{
+	return (core_routine());
+}
+
+int	main(void)
+{
+	return (launch_shell());
 }
