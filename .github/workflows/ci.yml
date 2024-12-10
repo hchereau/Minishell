@@ -93,7 +93,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Make test script executable
-        run: chmod +x test_minishell.sh
+        run: chmod +x e2e/Launch_shell/launch_shell.test.sh
 
       - name: Run test script
         run: ./e2e/Launch_shell/launch_shell.test.sh
