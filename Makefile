@@ -74,7 +74,7 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "$(BLUE)Compiling $(NAME)...$(WHITE)"
-	@$(CC) $(CFLAGS) $(RDL_FLAGS) $(OBJS) -o $(NAME) $(LIBFT) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT)
+	@$(CC) $(CFLAGS) $(RDL_FLAGS) $(OBJS) -o $(NAME) $(LIBFT) -I $(PATH_INCLUDES) -I libft/includes
 	@echo "$(GREEN)$(NAME) Compiled !$(WHITE)"
 
 $(OBJS): $(PATH_OBJS)%.o: %.c $(HEADERS)
