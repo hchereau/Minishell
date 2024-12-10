@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/10 16:47:37 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:05:41 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+static int	main_process(char *user_input_line)
+{
+	user_input_line = readline(MSH_PROMPT);
+	if (user_input_line == CTRL_D)
+	{
+		exit_shell_routine();
+	}
+	free(user_input_line);
+	return (EXIT_SUCCESS);
+}
 
 static int	core_routine(void)
 {
@@ -19,8 +30,7 @@ static int	core_routine(void)
 	user_input_line = NULL;
 	while (MSH_LOOP)
 	{
-		user_input_line = readline(MSH_PROMPT);
-		free(user_input_line);
+		main_process(user_input_line);
 	}
 	return (EXIT_SUCCESS);
 }
