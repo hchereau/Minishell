@@ -82,3 +82,18 @@ jobs:
         run: |
           make
           make fclean
+
+  tests environnement:
+    name: Test Minishell
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Make test script executable
+        run: chmod +x test_minishell.sh
+
+      - name: Run test script
+        run: ./e2e/Launch_shell/launch_shell.test.sh

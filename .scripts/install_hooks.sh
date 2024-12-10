@@ -6,7 +6,7 @@ ROOT_DIR=$(git rev-parse --show-toplevel)
 HOOKS_DIR="$ROOT_DIR/.git/hooks"
 SCRIPTS_DIR="$ROOT_DIR/.scripts"
 
-#ucncomment the following lines if you want to use pre-commit hook
+#uncomment the following lines if you want to use pre-commit hook
 
 # # Copy pre-commit hook
 # echo "Installing pre-commit hook..."
