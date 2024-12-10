@@ -102,4 +102,9 @@ install_hooks:
 norminette: $(SRCS) $(HEADERS)
 	norminette $^
 
+environment_tests:
+	@echo "$(BLUE)Environment tests...$(WHITE)"
+	@./e2e/Launch_shell/launch_shell.test.sh
+	@echo "$(GREEN)Environment tests passed !$(WHITE)"
+
 .PHONY: all clean fclean re cppcheck clang_analyzer norminette
