@@ -13,6 +13,7 @@ sleep 5
 if ps -p "$MINISHELL_PID" > /dev/null 2>&1; then
     echo "OK"
     # Vous pouvez éventuellement ajouter d'autres vérifications ou actions ici
+	exit 0
 else
     echo "KO"
     exit 1
