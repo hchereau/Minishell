@@ -39,6 +39,10 @@ ifeq ($(sanitize), true)
 	CFLAGS += -fsanitize=address,undefined -g3
 endif
 
+### RL_FLAG ####################################################################
+
+RL_FLAG := -lreadline
+
 ### COLORS #####################################################################
 
 GREEN := \033[0;32m
@@ -70,7 +74,7 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "$(BLUE)Compiling $(NAME)...$(WHITE)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT) $(RL_FLAG)
 	@echo "$(GREEN)$(NAME) Compiled !$(WHITE)"
 
 $(OBJS): $(PATH_OBJS)%.o: %.c $(HEADERS)
