@@ -3,18 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/10 11:08:32 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/10 14:32:57 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include <stdlib.h>
+// INCLUDES //
 
-# define LOOP 1
+# include "libft.h"
+
+# include <stdlib.h>
+# include <stdio.h>
+# include <readline/readline.h>
+//# include <readline/history.h>
+
+// DEFINES //
+
+# define MSH_LOOP 1
+# define MSH_PROMPT "SDF$> "
 
 #endif
