@@ -6,7 +6,7 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 14:28:27 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:01:13 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 // INCLUDES
 
+# include "history.h"
+# include "libft.h"
 # include "user_interface.h"
+
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -26,6 +29,6 @@
 // PROTOTYPES
 
 int		exit_shell_routine(void);
-char	*prompt_get_user_input(void);
+char	*prompt_gets_user_input(void);
 
 #endif

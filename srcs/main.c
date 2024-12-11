@@ -6,7 +6,7 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 13:44:27 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:01:25 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ static int	main_process(char *user_input_line)
 	{
 		exit_shell_routine();
 	}
-	free(user_input_line);
 	return (EXIT_SUCCESS);
 }
 
@@ -29,7 +28,7 @@ static int	core_routine(void)
 	user_input_line = NULL;
 	while (MSH_LOOP)
 	{
-		user_input_line = prompt_get_user_input();
+		user_input_line = prompt_gets_user_input();
 		main_process(user_input_line);
 		free(user_input_line);
 	}
