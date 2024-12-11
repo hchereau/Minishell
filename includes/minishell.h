@@ -6,7 +6,7 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/10 18:03:26 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/11 10:08:17 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 # define MSH_LOOP 1
 # define MSH_PROMPT "SDF$> "
-# define CTRL_D NULL
+# define CTRL_D 0
 
 int	exit_shell_routine(void);
 
