@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 14:52:06 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/11 15:01:25 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static int	core_routine(void)
 
 static int	launch_shell(void)
 {
+	signal(SIGINT, signal_handler);
 	return (core_routine());
 }
 
