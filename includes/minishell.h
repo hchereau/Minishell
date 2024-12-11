@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 11:08:26 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:39:45 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 
 # define MSH_LOOP 1
 # define MSH_PROMPT "SDF$> "
+# define CTRL_D 0
+
+int	exit_shell_routine(void);
 
 // PROTOTYPES
 
