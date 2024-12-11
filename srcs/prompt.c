@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 11:08:26 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/11 10:59:34 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/11 11:06:40 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "minishell.h"
 
-// INCLUDES
+char	*prompt_get_user_input(void)
+{
+	char	*user_input_line;
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-
-// DEFINES
-
-# define MSH_LOOP 1
-# define MSH_PROMPT "SDF$> "
-
-// PROTOTYPES
-
-char	*prompt_get_user_input(void);
-
-#endif
+	user_input_line = readline(MSH_PROMPT);
+	return (user_input_line);
+}
