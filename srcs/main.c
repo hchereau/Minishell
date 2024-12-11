@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 11:41:04 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:52:06 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 static int	main_process(char *user_input_line)
 {
-	user_input_line = readline(MSH_PROMPT);
 	if (user_input_line == CTRL_D)
 	{
 		exit_shell_routine();
 	}
-	free(user_input_line);
 	return (EXIT_SUCCESS);
 }
 
@@ -30,7 +28,7 @@ static int	core_routine(void)
 	user_input_line = NULL;
 	while (MSH_LOOP)
 	{
-		user_input_line = prompt_get_user_input();
+		user_input_line = prompt_gets_user_input();
 		main_process(user_input_line);
 		free(user_input_line);
 	}
