@@ -3,7 +3,9 @@
 echo "TEST : LAUNCH MINISHELL"
 
 # Lancer minishell en arrière-plan
-./minishell &
+mkfifo input_fifo
+
+./minishell < input_fifo &
 MINISHELL_PID=$!
 
 # Attendre 5 secondes
