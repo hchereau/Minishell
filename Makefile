@@ -9,9 +9,15 @@ LIBFT := $(PATH_LIBFT)libft.a
 ### SRCS ######################################################################
 
 PATH_SRCS += srcs/
+PATH_SRCS += srcs/user_interface/
 
 SRCS += main.c
 SRCS += exit_shell_routine.c
+SRCS += prompt.c
+
+# scrs/user_interface
+
+SRCS += signals.c
 
 vpath %.c $(PATH_SRCS)
 
