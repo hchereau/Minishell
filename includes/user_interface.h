@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   user_interface.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 13:19:38 by hucherea         ###   ########.fr       */
+/*   Created: 2024/12/11 13:10:49 by hucherea          #+#    #+#             */
+/*   Updated: 2024/12/11 13:16:48 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef USER_INTERFACE_H
+# define USER_INTERFACE_H
 
 // INCLUDES
 
-# include "user_interface.h"
-# include <stdio.h>
-# include <stdlib.h>
+# include <signal.h>
+# include <readline/readline.h>
+# include <readline/history.h>
 
 // DEFINES
 
-# define MSH_LOOP 1
-
-// VARIABLES GLOBALES
-
-	g_signal;
-
-int	exit_shell_routine(void);
+# define MSH_PROMPT "SDF$> "
+# define CTRL_D 0
 
 #endif

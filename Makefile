@@ -109,7 +109,7 @@ norminette: $(SRCS) $(HEADERS)
 
 environment_tests:
 	@echo "$(BLUE)Environment tests...$(WHITE)"
-	@./e2e/Launch_shell/launch_shell.test.sh
+	@./e2e/launch_environment_tests.test.sh
 	@echo "$(GREEN)Environment tests passed !$(WHITE)"
 
 .PHONY: all clean fclean re cppcheck clang_analyzer norminette

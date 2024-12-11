@@ -6,7 +6,7 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/10 18:05:41 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:07:35 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static int	core_routine(void)
 
 static int	launch_shell(void)
 {
+	signal(SIGINT, sigint_handler);
 	return (core_routine());
 }
 
