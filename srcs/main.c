@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/10 18:05:41 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:41:04 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ static int	core_routine(void)
 	user_input_line = NULL;
 	while (MSH_LOOP)
 	{
+		user_input_line = prompt_get_user_input();
 		main_process(user_input_line);
+		free(user_input_line);
 	}
 	return (EXIT_SUCCESS);
 }

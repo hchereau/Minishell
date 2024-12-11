@@ -12,6 +12,7 @@ PATH_SRCS += srcs/
 
 SRCS += main.c
 SRCS += exit_shell_routine.c
+SRCS += prompt.c
 
 vpath %.c $(PATH_SRCS)
 
