@@ -15,16 +15,28 @@ feature: Syntax analysis
 		And I press Enter
 		Then no syntax error is returned
 
+	Scenario: User enters a command with unbalanced quotes
+	Given I am a user and I'm at the Minishell prompt
+    When I enter a command which contains unbalanced quotes such as "echo 'Hello"
+    And I press Enter
+    Then a syntax error is returned
+
+	Scenario: User enters a command with incomplete redirections
+	Given I am a user and I'm at the Minishell prompt
+    When I enter a command with an incomplete redirection line such as "ls >"
+    And I press Enter
+    Then a syntax error is returned
+
 	Scenario: User enters an invalid command line comprising two or more consecutive metacharacters
 		Given I am a user and I'm at the Minishell prompt
-		When I enter an invalid command line comprising two or more consecutive metacharacters (except for '>' or '<')
+		When I enter an invalid command line comprising two or more consecutive metacharacters (except '>>' or '<<')
 		And I press Enter
 		Then a syntax error is returned
 
 	Scenario: User enters an invalid command line comprising a metacharacter that unrecognized by the shell
-		Given I am a user and I'm at the Minsihell prompt
+		Given I am a user and I'm at the Minishell prompt
 		When I enter an invalid command line comprising a metacharacter that unrecognized by the shell (such as "&")
-		And I press enter
+		And I press Enter
 		Then a syntax error is returned
 
 Examples:
@@ -36,6 +48,7 @@ Examples:
 	| << stop					| no syntax error	|
 	| ls || grep a				| syntax error		|
 	| echo a >>> outfile		| syntax error		|
+	| ls >						| syntax error		|
 	| echo a & ls				| syntax error		|
 	| l"s						| syntax error		|
 
@@ -43,9 +56,9 @@ Examples:
 
 
 
+Error message style:
 
-
-
+SDF: syntax error nera unexpected token `TOKEN'
 
 
 
