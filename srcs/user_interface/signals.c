@@ -6,11 +6,19 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:46:42 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 14:28:34 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:32:38 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "user_interface.h"
+
+void	received_signal(void)
+{
+	struct sigaction	s_int;
+	struct sigaction	s_quit;
+
+
+}
 
 void	sigint_routine(void)
 {
