@@ -33,9 +33,9 @@ feature: Syntax analysis
 		And I press Enter
 		Then a syntax error is returned
 
-	Scenario: User enters an invalid command line comprising a metacharacter that unrecognized by the shell
+	Scenario: User enters an invalid command line with an unrecognized metacharacter not enclosed in quotes
 		Given I am a user and I'm at the Minishell prompt
-		When I enter an invalid command line comprising a metacharacter that unrecognized by the shell (such as "&")
+		When I enter an invalid command line with an unrecognized metacharacter (e.g., "&") not enclosed in quotes
 		And I press Enter
 		Then a syntax error is returned
 
