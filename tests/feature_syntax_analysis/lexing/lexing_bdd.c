@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_main.c                                       :+:      :+:    :+:   */
+/*   lexing_bdd.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 17:52:23 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 19:48:01 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/13 19:12:54 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/13 19:14:05 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-int	main(void)
+void	set_up(void)
 {
-	parsing_bdd_tests();
+
 }
+
+void	tear_down(void)
+{
+
+}
+
+void	test

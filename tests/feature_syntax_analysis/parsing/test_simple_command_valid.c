@@ -6,16 +6,15 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:45:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 18:31:56 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/13 19:57:19 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-static void	arrange(t_token_type first_value, t_token_type second_value,
-				t_token *first_token, t_token *second_token)
+static void	arrange()
 {
-	first_token->token_type = first_value;
+	first_token->token_type = ENTRY_START;
 	first_token->next_token = second_token;
 	second_token->token_type = second_value;
 	second_token->next_token = NULL;
@@ -31,15 +30,15 @@ void	tear_down(void)
 
 }
 
-void	test_simple_command_valid(t_token_type first_token_value,
-			t_token_type second_token_value)
+void	test_simple_command_no_options_valid(t_token_type command_token_value)
 {
 	t_token				first_token;
 	t_token				second_token;
+	t_token				last_token;
 	t_syntax_verified	parser_output;
 
 	//ARRANGE
-	arrange(first_token_value, second_token_value, &first_token, &second_token);
+	arrange(first_t &second_token);
 
 	//ACT
 	parser_output = minishell_syntax_analyser(&first_token);

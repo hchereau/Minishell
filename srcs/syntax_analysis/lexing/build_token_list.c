@@ -1,18 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_main.c                                       :+:      :+:    :+:   */
+/*   build_token_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 17:52:23 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 19:48:01 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/13 19:24:01 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/13 19:24:17 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
-
-int	main(void)
-{
-	parsing_bdd_tests();
-}
+# include "minishell.h"
