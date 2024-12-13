@@ -1,2 +1,0 @@
-SDF$> Hello "unclosed
-SDF$> exit
