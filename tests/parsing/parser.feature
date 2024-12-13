@@ -1,15 +1,10 @@
-feature: Syntax analysis
-	As a developper
-	I want my shell prompt to give me a syntax error on the input I just entered
-	So that I can know if it is valid
-
 	Scenario: User enters a valid single command pipeline
 		Given I am a user and I'm at the Minishell prompt
 		When I enter a valid single command such as "ls -l"
 		And I press Enter
 		Then no syntax error is returned
 
-	Scenario: User enters a valid complex command pipeline
+Scenario: User enters a valid complex command pipeline
     Given I am a user and I'm at the Minishell prompt
     When I enter a valid complex command pipeline such as "ls -l | grep a > outfile"
     And I press Enter
