@@ -1,8 +1,8 @@
-	Scenario: User enters a valid single command pipeline
-		Given I am a user and I'm at the Minishell prompt
-		When I enter a valid single command such as "ls -l"
-		And I press Enter
-		Then no syntax error is returned
+Scenario: User enters a valid single command pipeline
+	Given I am a user and I'm at the Minishell prompt
+	When I enter a valid single command such as "ls -l"
+	And I press Enter
+	Then no syntax error is returned
 
 Scenario: User enters a valid complex command pipeline
     Given I am a user and I'm at the Minishell prompt
@@ -90,3 +90,20 @@ Erreur notamment si :
 
 
 # Wrapper test -> sous tests, passer les valeurs puis les assertions
+
+
+TABLEAU
+SUCCESSIONS POSSIBLES:
+
+START:
+
+START -> COMMAND
+START -> HEREDOC_OPERATOR
+START -> INPUT_REDIR
+
+
+START ?? OUTPUT_REDIR
+START -/-> PIPE
+
+WORD -> WORD
+COMMAND -> WORD

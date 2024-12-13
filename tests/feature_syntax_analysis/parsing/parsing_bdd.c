@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   parsing_bdd.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/13 17:56:47 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/13 18:25:24 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/13 18:33:55 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "tests.h"
 
-// INCLUDES
-
-# include "history.h"
-# include "libft.h"
-# include "user_interface.h"
-# include "parsing.h"
-
-# include <stdio.h>
-# include <stdlib.h>
-
-// DEFINES
-
-# define MSH_LOOP 1
-
-// PROTOTYPES
-
-int		exit_shell_routine(void);
-char	*prompt_gets_user_input(void);
-
-#endif
+void	parsing_bbd_valid_syntax(void)
+{
+	test_simple_command_valid(WORD, END);
+	//test_simple_command_valid(WORD, WORD);
+}
