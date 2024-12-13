@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   tests.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:46:44 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 17:48:24 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:01:11 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef TESTS_H
+# define TESTS_H
 
 // INCLUDES
 
 # include "unity.h"
 # include "minishell.h"
 
-// PROTOTYPES
+/// PROTOTYPES ///
+
+// PARSING
+
+void	parsing_bdd_tests(void);
+void	parsing_bdd_valid_syntax(void);
+void	test_simple_command_no_options_valid(void);
 
 #endif

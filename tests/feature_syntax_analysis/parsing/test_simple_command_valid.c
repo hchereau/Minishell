@@ -6,42 +6,47 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:45:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 19:57:19 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:54:13 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-static void	arrange()
+static void	set_tokens_values(t_token *fst_token, t_token *scnd_token,
+				t_token *lst_token)
 {
-	first_token->token_type = ENTRY_START;
-	first_token->next_token = second_token;
-	second_token->token_type = second_value;
-	second_token->next_token = NULL;
+	fst_token->token_type = ENTRY_START;
+	scnd_token->token_type = WORD;
+	lst_token->token_type = ENTRY_END;
+	fst_token->next_token = scnd_token;
+	scnd_token->next_token = lst_token;
+	lst_token->next_token = NULL;
 }
 
-void	set_up(void)
+void	setUp(void)
+{
+	printf("testing parsing: simple command / no args\n");
+}
+
+void	tearDown(void)
 {
 
 }
 
-void	tear_down(void)
+void	test_simple_command_no_options_valid(void)
 {
-
-}
-
-void	test_simple_command_no_options_valid(t_token_type command_token_value)
-{
+	t_token_list		tokenized_input;
 	t_token				first_token;
 	t_token				second_token;
 	t_token				last_token;
 	t_syntax_verified	parser_output;
 
 	//ARRANGE
-	arrange(first_t &second_token);
+	set_tokens_values(&first_token, &second_token, &last_token);
+	tokenized_input.entry_start = &first_token;
 
 	//ACT
-	parser_output = minishell_syntax_analyser(&first_token);
+	parser_output = syntax_analyser(tokenized_input);
 
 	//ASSERT
 	TEST_ASSERT_EQUAL(VALID_SYNTAX, parser_output);
@@ -85,5 +90,8 @@ OUTPUT = une enum indiquant si cette suite de lexems respecte la syntaxe du shel
 GOAL = definir si la suite de tokens qui lui est fourni respecte la syntaxe du shell
 
 PROCESS =
+
+
+cw -Iincludes -IUnity/src -Ilibft/includes tests/tests_main.c tests/feature_syntax_analysis/parsing/parsing_bdd.c tests/feature_syntax_analysis/parsing/test_simple_command_valid.c srcs/syntax_analysis/parsing/syntax_analyser.c Unity/src/unity.c -fsanitize=address -g3
 
 */

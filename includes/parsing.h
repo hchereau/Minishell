@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:57:07 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 19:22:16 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:23:42 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef enum e_token_type
 
 typedef enum e_syntax_verified
 {
+	NO_SYNTAX,
 	VALID_SYNTAX,
 	INVALID_SYNTAX
 }			t_syntax_verified;
@@ -56,7 +57,11 @@ typedef struct s_token
 typedef struct s_token_list
 {
 	t_token			*entry_start;
-	t_token_number	token_number;
+	//t_token_number	tokens_number;
 }				t_token_list;
+
+// PROTOTYPES
+
+t_syntax_verified	syntax_analyser(t_token_list tokenized_input);
 
 #endif

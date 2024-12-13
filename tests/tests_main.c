@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 17:52:23 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 19:48:01 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/13 21:51:56 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int	main(void)
 {
-	parsing_bdd_tests();
+	// PARSING
+	UNITY_BEGIN();
+	RUN_TEST(parsing_bdd_tests);
+	return (UNITY_END());
 }

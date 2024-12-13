@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexing_bdd.c                                       :+:      :+:    :+:   */
+/*   syntax_analyser.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 19:12:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 20:51:02 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/13 21:05:13 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/13 21:23:56 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "minishell.h"
 
-// void	set_up(void)
-// {
-
-// }
-
-// void	tear_down(void)
-// {
-
-// }
-
-// void	test
-
-//COUCOU LS
+t_syntax_verified	syntax_analyser(t_token_list tokenized_input)
+{
+	(void)tokenized_input;
+	return (NO_SYNTAX);
+}
