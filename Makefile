@@ -30,6 +30,7 @@ SRCS += add_history.c
 # srcs/syntax_analysis
 
 SRCS += syntax_analyser.c
+SRCS += build_token_list_from_user_input.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -39,8 +40,10 @@ TESTS_NAME := features_tests
 
 TESTS_SRCS_DIR += ./tests
 TESTS_SRCS_DIR += ./tests/feature_syntax_analysis
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing/BDD
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing/unit_tests
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/BDD
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/unit_tests
 
 TESTS_SRCS += tests_main.c
 
@@ -49,6 +52,7 @@ TESTS_SRCS += tests_main.c
 TESTS_SRCS += lexing_bdd.c
 TESTS_SRCS += parsing_bdd.c
 TESTS_SRCS += test_simple_command_valid.c
+TESTS_SRCS += lexing_bdd_empty_string.c
 
 UNITY_SRCS := Unity/src/unity.c
 

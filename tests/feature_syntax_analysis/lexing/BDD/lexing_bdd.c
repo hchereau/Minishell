@@ -6,22 +6,14 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:12:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 20:51:02 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:57:49 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-// void	set_up(void)
-// {
-
-// }
-
-// void	tear_down(void)
-// {
-
-// }
-
-// void	test
-
+void	lexing_bdd_tests(void)
+{
+	test_input_empty_string();
+}
 //COUCOU LS

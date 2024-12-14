@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:45:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 17:16:40 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:11:58 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static void	set_tokens_values(t_token *fst_token, t_token *scnd_token,
 				t_token *lst_token)
 {
-	fst_token->token_type = ENTRY_START;
+	fst_token->token_type = TOKEN_LIST_START;
 	scnd_token->token_type = WORD;
-	lst_token->token_type = ENTRY_END;
+	lst_token->token_type = TOKEN_LIST_END;
 	fst_token->next_token = scnd_token;
 	scnd_token->next_token = lst_token;
 	lst_token->next_token = NULL;
@@ -43,7 +43,7 @@ void	test_simple_command_no_options_valid(void)
 
 	//ARRANGE
 	set_tokens_values(&first_token, &second_token, &last_token);
-	tokenized_input.entry_start = &first_token;
+	tokenized_input.token_list = &first_token;
 
 	//ACT
 	parser_output = syntax_analyser(tokenized_input);

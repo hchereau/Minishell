@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:57:07 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 17:15:49 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/14 18:41:10 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef size_t	t_token_number;
 
 typedef enum e_token_type
 {
-	ENTRY_START,
-	ENTRY_END,
+	TOKEN_LIST_START,
+	TOKEN_LIST_END,
 	WORD,
 	PIPE,
 	INPUT_REDIR_OPERATOR,
@@ -56,11 +56,17 @@ typedef struct s_token
 
 typedef struct s_token_list
 {
-	t_token			*entry_start;
+	t_token			*token_list;
 	//t_token_number	tokens_number;
 }				t_token_list;
 
 // PROTOTYPES
+
+// LEXING
+
+t_token_list	build_token_list_from_user_input(char *user_input);
+
+// PARSING
 
 t_syntax_status	syntax_analyser(t_token_list tokenized_input);
 

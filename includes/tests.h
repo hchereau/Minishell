@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:46:44 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 21:01:11 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:15:01 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # include "minishell.h"
 
 /// PROTOTYPES ///
+
+// LEXING
+
+void	lexing_bdd_tests(void);
+void	test_input_empty_string(void);
 
 // PARSING
 
