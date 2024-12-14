@@ -66,9 +66,6 @@ PATH_TESTS_OBJS := objs/tests/
 
 TESTS_OBJS := $(patsubst %.c, $(PATH_TESTS_OBJS)%.o, $(TESTS_SRCS))
 
-$(PATH_TESTS_OBJS)%.o: %.c $(HEADERS)
-	@mkdir -p $(PATH_TESTS_OBJS)
-	@$(CC) $(CFLAGS) -DTEST_MODE -c $< -o $@ -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT) -I $(PATH_INCLUDES_UNITY)
 
 ### HEADERS ###################################################################
 
@@ -142,6 +139,11 @@ $(OBJS): $(PATH_OBJS)%.o: %.c $(HEADERS)
 	@mkdir -p $(PATH_OBJS)
 	@$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT)
 
+$(TESTS_OBJS): $(PATH_TESTS_OBJS)%.o: %.c $(HEADERS)
+	@mkdir -p $(PATH_TESTS_OBJS)
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT) -I $(PATH_INCLUDES_UNITY)
+
+
 $(LIBFT):
 	@echo "$(BLUE)Compiling $(LIBFT) ...$(WHITE)"
 	@$(MAKE) -sC $(PATH_LIBFT)
@@ -167,10 +169,6 @@ install_hooks:
 
 norminette: $(SRCS) $(HEADERS)
 	norminette $^
-
-# tests: $(TESTS_SRCS) $(SRCS) $(UNITY_SRCS)
-# 	@echo "$(BLUE)Features tests...$(WHITE)"
-# 	$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) -o $(TESTS_NAME) $^ -DTEST_MODE
 
 tests: $(TESTS_OBJS) $(filter-out $(PATH_OBJS)main.o, $(OBJS)) $(UNITY_SRCS)
 	@echo "$(BLUE)Features tests...$(WHITE)"
