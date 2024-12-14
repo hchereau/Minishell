@@ -11,6 +11,9 @@ LIBFT := $(PATH_LIBFT)libft.a
 PATH_SRCS += srcs/
 PATH_SRCS += srcs/user_interface/
 PATH_SRCS += srcs/history
+PATH_SRCS += srcs/syntax_analysis
+PATH_SRCS += srcs/syntax_analysis/lexing
+PATH_SRCS += srcs/syntax_analysis/parsing
 
 SRCS += main.c
 SRCS += exit_shell_routine.c
@@ -24,7 +27,32 @@ SRCS += prompt.c
 
 SRCS += add_history.c
 
+# srcs/syntax_analysis
+
+SRCS += syntax_analyser.c
+
 vpath %.c $(PATH_SRCS)
+
+### TETS SRCS ################################################################
+
+TESTS_NAME := features_tests
+
+TESTS_SRCS_DIR += ./tests
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing
+TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing
+
+TESTS_SRCS += tests_main.c
+
+# syntax analysis
+
+TESTS_SRCS += lexing_bdd.c
+TESTS_SRCS += parsing_bdd.c
+TESTS_SRCS += test_simple_command_valid.c
+
+UNITY_SRCS := Unity/src/unity.c
+
+vpath %.c $(TESTS_SRCS_DIR)
 
 ### OBJS ######################################################################
 
@@ -32,10 +60,22 @@ PATH_OBJS := objs/
 
 OBJS := $(patsubst %.c, $(PATH_OBJS)%.o, $(SRCS))
 
+### TESTS_OBJS ################################################################
+
+PATH_TESTS_OBJS := objs/tests/
+
+TESTS_OBJS := $(patsubst %.c, $(PATH_TESTS_OBJS)%.o, $(TESTS_SRCS))
+
+$(PATH_TESTS_OBJS)%.o: %.c $(HEADERS)
+	@mkdir -p $(PATH_TESTS_OBJS)
+	@$(CC) $(CFLAGS) -DTEST_MODE -c $< -o $@ -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_LIBFT) -I $(PATH_INCLUDES_UNITY)
+
 ### HEADERS ###################################################################
 
 PATH_INCLUDES := includes/
 PATH_INCLUDES_LIBFT := $(PATH_LIBFT)includes/
+PATH_INCLUDES_TESTS := includes/
+PATH_INCLUDES_UNITY := ./Unity/src
 
 HEADERS += $(PATH_INCLUDES)minishell.h
 
@@ -49,6 +89,15 @@ CFLAGS += -Werror
 
 ifeq ($(sanitize), true)
 	CFLAGS += -fsanitize=address,undefined -g3
+endif
+
+ifeq ($(d), 1)
+	CFLAGS += -g3
+endif
+
+ifeq ($(d), 2)
+	CC = clang
+	CFLAGS = -Weverything
 endif
 
 ### RL_FLAG ####################################################################
@@ -107,6 +156,7 @@ clean:
 fclean: clean
 	@echo "$(BLUE)Full Cleaning $(NAME) ...$(WHITE)"
 	@$(RM) $(NAME)
+	@$(RM) $(TESTS_NAME)
 	@$(MAKE) -sC $(PATH_LIBFT) fclean
 	@echo "$(GREEN)$(NAME) Fully Cleaned ! $(WHITE)"
 
@@ -118,9 +168,17 @@ install_hooks:
 norminette: $(SRCS) $(HEADERS)
 	norminette $^
 
+# tests: $(TESTS_SRCS) $(SRCS) $(UNITY_SRCS)
+# 	@echo "$(BLUE)Features tests...$(WHITE)"
+# 	$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) -o $(TESTS_NAME) $^ -DTEST_MODE
+
+tests: $(TESTS_OBJS) $(filter-out $(PATH_OBJS)main.o, $(OBJS)) $(UNITY_SRCS)
+	@echo "$(BLUE)Features tests...$(WHITE)"
+	$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) -o $(TESTS_NAME) $^ -DTEST_MODE
+
 environment_tests:
 	@echo "$(BLUE)Environment tests...$(WHITE)"
 	@./e2e/launch_environment_tests.test.sh
 	@echo "$(GREEN)Environment tests passed !$(WHITE)"
 
-.PHONY: all clean fclean re cppcheck clang_analyzer norminette
+.PHONY: all clean fclean re cppcheck clang_analyzer norminette tests
