@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 17:45:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 21:54:13 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:16:40 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	test_simple_command_no_options_valid(void)
 	t_token				first_token;
 	t_token				second_token;
 	t_token				last_token;
-	t_syntax_verified	parser_output;
+	t_syntax_status		parser_output;
 
 	//ARRANGE
 	set_tokens_values(&first_token, &second_token, &last_token);

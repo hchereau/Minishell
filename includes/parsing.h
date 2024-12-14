@@ -6,7 +6,7 @@
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:57:07 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/13 21:23:42 by tchobert         ###   ########.fr       */
+/*   Updated: 2024/12/14 17:15:49 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ typedef enum e_token_type
 	UNKNOWN_OPERATOR
 }			t_token_type;
 
-typedef enum e_syntax_verified
+typedef enum e_syntax_status
 {
 	NO_SYNTAX,
 	VALID_SYNTAX,
 	INVALID_SYNTAX
-}			t_syntax_verified;
+}			t_syntax_status;
 
 // STRUCTURES
 
@@ -62,6 +62,6 @@ typedef struct s_token_list
 
 // PROTOTYPES
 
-t_syntax_verified	syntax_analyser(t_token_list tokenized_input);
+t_syntax_status	syntax_analyser(t_token_list tokenized_input);
 
 #endif
