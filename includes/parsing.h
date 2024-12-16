@@ -52,6 +52,12 @@ typedef enum e_syntax_status
 	INVALID_SYNTAX
 }			t_syntax_status;
 
+typedef enum e_token_add_status
+{
+	ADD_SUCCESS,
+	ADD_FAILURE
+}			t_token_add_status;
+
 // STRUCTURES
 
 typedef struct s_token			t_token;
@@ -82,8 +88,11 @@ typedef struct e_lexing_machine
 
 // LEXING
 
-t_token_list	build_token_list_from_user_input(char *user_input);
-t_token			*create_token(char *new_token_content, t_token_type new_token_type);
+t_token_list		build_token_list_from_user_input(char *user_input);
+t_token				*create_token(char *new_token_content,
+						t_token_type new_token_type);
+t_token_add_status	add_token_to_token_list(t_token_list *token_list,
+						t_token *token_to_add);
 
 // PARSING
 

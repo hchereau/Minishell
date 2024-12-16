@@ -32,6 +32,7 @@ SRCS += add_history.c
 SRCS += syntax_analyser.c
 SRCS += build_token_list_from_user_input.c
 SRCS += create_token.c
+SRCS += add_token_to_token_list.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -55,6 +56,7 @@ TESTS_SRCS += parsing_bdd.c
 TESTS_SRCS += test_simple_command_valid.c
 TESTS_SRCS += lexing_bdd_empty_string.c
 TESTS_SRCS += create_token_test.c
+TESTS_SRCS += add_token_to_token_list_test.c
 
 UNITY_SRCS := Unity/src/unity.c
 
