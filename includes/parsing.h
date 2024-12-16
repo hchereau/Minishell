@@ -73,7 +73,8 @@ typedef struct s_token
 
 typedef struct s_token_list
 {
-	t_token			*token_list;
+	t_token			*token_list_first_token;
+	t_token			*token_list_last_token;
 	//t_token_number	tokens_number;
 }				t_token_list;
 

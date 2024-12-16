@@ -43,7 +43,7 @@ void	test_simple_command_no_options_valid(void)
 
 	//ARRANGE
 	set_tokens_values(&first_token, &second_token, &last_token);
-	tokenized_input.token_list = &first_token;
+	tokenized_input.token_list_first_token = &first_token;
 
 	//ACT
 	parser_output = syntax_analyser(tokenized_input);

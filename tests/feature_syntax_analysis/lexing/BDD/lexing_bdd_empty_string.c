@@ -20,7 +20,7 @@ static int		check_lexing_result(t_token_list lexer_output)
 	t_token			*current_token;
 
 	i = 0;
-	current_token = lexer_output.token_list;
+	current_token = lexer_output.token_list_first_token;
 	expected_output_size = 3;
 	while (current_token != NULL && i < expected_output_size)
 	{

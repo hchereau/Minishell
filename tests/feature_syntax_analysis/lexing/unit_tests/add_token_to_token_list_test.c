@@ -19,15 +19,15 @@ void	test_add_token_to_token_list(void)
 	t_token			*first_token = create_token("test 1", TOKEN_LIST_START);
 	t_token			*second_token = create_token("test 2", TOKEN_LIST_END);
 
-	token_list_test.token_list = NULL;
+	token_list_test.token_list_first_token = NULL;
 
 	//ACT
 	add_token_to_token_list(&token_list_test, first_token);
 	add_token_to_token_list(&token_list_test, second_token);
 
 	//ASSERT
-	TEST_ASSERT_EQUAL(token_list_test.token_list, first_token);
-	TEST_ASSERT_EQUAL(token_list_test.token_list->next_token, second_token);
+	TEST_ASSERT_EQUAL(token_list_test.token_list_first_token, first_token);
+	TEST_ASSERT_EQUAL(token_list_test.token_list_first_token->next_token, second_token);
 }
 
 /*

@@ -17,6 +17,6 @@ t_token_list	build_token_list_from_user_input(char *user_input)
 	(void)user_input;
 	t_token_list	tokenized_user_input;
 
-	tokenized_user_input.token_list = NULL;
+	tokenized_user_input.token_list_first_token = NULL;
 	return (tokenized_user_input);
 }
