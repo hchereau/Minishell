@@ -31,6 +31,7 @@ SRCS += add_history.c
 
 SRCS += syntax_analyser.c
 SRCS += build_token_list_from_user_input.c
+SRCS += create_token.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -53,6 +54,7 @@ TESTS_SRCS += lexing_bdd.c
 TESTS_SRCS += parsing_bdd.c
 TESTS_SRCS += test_simple_command_valid.c
 TESTS_SRCS += lexing_bdd_empty_string.c
+TESTS_SRCS += create_token_test.c
 
 UNITY_SRCS := Unity/src/unity.c
 
@@ -174,9 +176,11 @@ install_hooks:
 norminette: $(SRCS) $(HEADERS)
 	norminette $^
 
-tests: $(TESTS_OBJS) $(filter-out $(PATH_OBJS)main.o, $(OBJS)) $(UNITY_SRCS)
+tests: $(LIBFT) $(TESTS_OBJS) $(filter-out $(PATH_OBJS)main.o, $(OBJS)) $(UNITY_SRCS)
 	@echo "$(BLUE)Features tests...$(WHITE)"
-	$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) -o $(TESTS_NAME) $^ -DTEST_MODE
+	$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) $^ -o $(TESTS_NAME) -L$(PATH_LIBFT) -lft -DTEST_MODE
+
+#$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) -o $(TESTS_NAME) $^ -DTEST_MODE
 
 environment_tests:
 	@echo "$(BLUE)Environment tests...$(WHITE)"

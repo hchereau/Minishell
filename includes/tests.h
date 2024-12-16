@@ -16,6 +16,7 @@
 // INCLUDES
 
 # include "unity.h"
+# include "libft.h"
 # include "minishell.h"
 
 /// PROTOTYPES ///
@@ -24,6 +25,8 @@
 
 void	lexing_bdd_tests(void);
 void	test_input_empty_string(void);
+
+void	test_create_token(void);
 
 // PARSING
 

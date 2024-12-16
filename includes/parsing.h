@@ -23,6 +23,15 @@ typedef size_t	t_token_number;
 
 // ENUMS
 
+typedef enum e_machine_state
+{
+	STRING_START,
+	IN_WORD,
+	IN_QUOTES,
+	STRING_END
+}			t_machine_state;
+
+
 typedef enum e_token_type
 {
 	TOKEN_LIST_START,
@@ -51,6 +60,8 @@ typedef struct s_token_list		t_token_list;
 typedef struct s_token
 {
 	t_token_type	token_type;
+	char			*token_content;
+	t_token			*previous_token;
 	t_token			*next_token;
 }				t_token;
 
@@ -60,11 +71,19 @@ typedef struct s_token_list
 	//t_token_number	tokens_number;
 }				t_token_list;
 
+typedef struct e_lexing_machine
+{
+	char			*input_str;
+	t_token_list	input_token_list;
+	t_machine_state	current_state;
+}			t_lexing_machine;
+
 // PROTOTYPES
 
 // LEXING
 
 t_token_list	build_token_list_from_user_input(char *user_input);
+t_token			*create_token(char *new_token_content, t_token_type new_token_type);
 
 // PARSING
 

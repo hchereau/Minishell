@@ -18,6 +18,7 @@ int	main(void)
 
 	//LEXING
 	RUN_TEST(lexing_bdd_tests);
+	RUN_TEST(test_create_token);
 
 	// PARSING
 	RUN_TEST(parsing_bdd_tests);
