@@ -12,6 +12,16 @@
 
 #include "tests.h"
 
+void	setUp(void)
+{
+	printf("testing lexing: create_token\n\n");
+}
+
+void	tearDown(void)
+{
+	printf('\n');
+}
+
 void	test_create_token(void)
 {
 	//ARRANGE

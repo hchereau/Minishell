@@ -25,12 +25,12 @@ static void	set_tokens_values(t_token *fst_token, t_token *scnd_token,
 
 void	setUp(void)
 {
-	printf("testing parsing: simple command / no args\n");
+	printf("testing parsing: simple command / no args\n\n");
 }
 
 void	tearDown(void)
 {
-
+	printf('\n');
 }
 
 void	test_simple_command_no_options_valid(void)

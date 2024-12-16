@@ -94,6 +94,7 @@ t_token				*create_token(char *new_token_content,
 						t_token_type new_token_type);
 t_token_add_status	add_token_to_token_list(t_token_list *token_list,
 						t_token *token_to_add);
+void				delete_token(t_token *token_to_delete);
 
 // PARSING
 

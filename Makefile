@@ -33,6 +33,7 @@ SRCS += syntax_analyser.c
 SRCS += build_token_list_from_user_input.c
 SRCS += create_token.c
 SRCS += add_token_to_token_list.c
+SRCS += delete_token.c
 
 vpath %.c $(PATH_SRCS)
 
