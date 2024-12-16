@@ -22,10 +22,10 @@ t_token	*create_token(char *new_token_content, t_token_type new_token_type)
 	new_token = (t_token *)malloc(sizeof(t_token));
 	if (new_token != NULL)
 	{
-		new_token->token_content = "abc";
+		new_token->token_content = ft_strdup(new_token_content);
+		new_token->token_type = new_token_type;
 		new_token->previous_token = NULL;
 		new_token->next_token = NULL;
-		new_token->token_type = TOKEN_LIST_START;
 	}
 	return (new_token);
 }
