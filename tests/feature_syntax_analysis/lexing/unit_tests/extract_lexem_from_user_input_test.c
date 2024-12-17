@@ -15,6 +15,7 @@
 void	test_extract_lexem_from_user_input(void)
 {
 	printf("Testing lexing: extract_lexem_from_user_input\n");
+	
 	//ARRANGE
 
 	char	*test = "Cut a lexem";

@@ -16,7 +16,7 @@ void	test_delete_token(void)
 {
 	printf("Testing lexing: delete token\n");
 
-	//ASSERT
+	//ARRANGE
 	t_token	*token_to_delete_1 = create_token("test", WORD);
 	t_token	*token_to_delete_2 = create_token(">", INPUT_REDIR_OPERATOR);
 

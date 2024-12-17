@@ -38,13 +38,13 @@ void	test_input_empty_string(void)
 {
 	t_token_list	lexer_output;
 
-	//ARRANGE
+	//GIVEN
 	char			*user_input = "";
 
-	//ACT
+	//WHEN
 	lexer_output = build_token_list_from_user_input(user_input);
 
-	//ASSERT
+	//THEN
 	TEST_ASSERT_EQUAL(SUCCESS, check_lexing_result(lexer_output));
 }
 /*
