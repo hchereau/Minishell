@@ -18,17 +18,26 @@ void	test_create_token(void)
 
 	//ARRANGE
 	char			*new_token_content = "Hello test";
+	char			*new_token_2_content_test = "<";
 	const t_token_type	new_token_type = WORD;
 	t_token				*new_token;
+	t_token				*new_token_2;
 
 	//ACT
 	new_token = create_token(new_token_content, new_token_type);
+	new_token_2 = create_token("<", INPUT_REDIR_OPERATOR);
 
 	//ASSERT
 	TEST_ASSERT_EQUAL(WORD, new_token->token_type);
 	TEST_ASSERT_EQUAL(0, ft_strcmp(new_token_content, new_token->token_content));
 	TEST_ASSERT_EQUAL(NULL, new_token->previous_token);
 	TEST_ASSERT_EQUAL(NULL, new_token->next_token);
+
+	TEST_ASSERT_EQUAL(INPUT_REDIR_OPERATOR, new_token_2->token_type);
+	TEST_ASSERT_EQUAL(0, ft_strcmp("<", new_token_2->token_content));
+	TEST_ASSERT_EQUAL(new_token_2_content_test[0], new_token_2->token_content[0]);
+	TEST_ASSERT_EQUAL(NULL, new_token_2->previous_token);
+	TEST_ASSERT_EQUAL(NULL, new_token_2->next_token);
 }
 
 /*

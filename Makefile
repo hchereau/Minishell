@@ -57,6 +57,7 @@ TESTS_SRCS += parsing_bdd.c
 TESTS_SRCS += test_simple_command_valid.c
 TESTS_SRCS += lexing_bdd_empty_string.c
 TESTS_SRCS += create_token_test.c
+TESTS_SRCS += delete_token_test.c
 TESTS_SRCS += add_token_to_token_list_test.c
 
 UNITY_SRCS := Unity/src/unity.c

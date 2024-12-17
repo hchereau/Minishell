@@ -17,13 +17,16 @@ void	test_delete_token(void)
 	printf("Testing lexing: delete token\n");
 
 	//ASSERT
-	t_token	*token_to_delete = create_token("test", WORD);
+	t_token	*token_to_delete_1 = create_token("test", WORD);
+	t_token	*token_to_delete_2 = create_token(">", INPUT_REDIR_OPERATOR);
 
 	//ACT
-	delete_token(token_to_delete);
+	delete_token(&token_to_delete_1);
+	delete_token(&token_to_delete_2);
 
 	//ASSERT
-	ASSERT_TEST_EQUAL(token_to_delete, NULL);
+	TEST_ASSERT_EQUAL(NULL, token_to_delete_1);
+	TEST_ASSERT_EQUAL(NULL, token_to_delete_2);
 }
 
 /*

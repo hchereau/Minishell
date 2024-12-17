@@ -25,10 +25,13 @@ int	main(void)
 {
 	UNITY_BEGIN();
 
+	printf("\n");
 	//LEXING
 	RUN_TEST(lexing_bdd_tests);
 	printf("\n");
 	RUN_TEST(test_create_token);
+	printf("\n");
+	RUN_TEST(test_delete_token);
 	printf("\n");
 	RUN_TEST(test_add_token_to_token_list);
 	printf("\n");
