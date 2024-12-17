@@ -20,6 +20,7 @@
 // TYPEDEFS
 
 typedef size_t	t_token_number;
+typedef char *	t_lexem;
 
 // ENUMS
 
@@ -96,6 +97,8 @@ t_token_add_status	add_token_to_token_list(t_token_list *token_list,
 void				delete_token(t_token **token_to_delete);
 void				delete_token_list(t_token_list **list_to_delete,
 						void (*del_funct)(t_token **));
+t_lexem				extract_lexem_from_user_input(char *lexem_start,
+						char *lexem_end);
 
 // PARSING
 

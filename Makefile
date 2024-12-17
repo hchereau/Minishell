@@ -35,6 +35,7 @@ SRCS += create_token.c
 SRCS += add_token_to_token_list.c
 SRCS += delete_token.c
 SRCS += delete_token_list.c
+SRCS += extract_lexem_from_user_input.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -62,6 +63,7 @@ TESTS_SRCS += create_token_test.c
 TESTS_SRCS += delete_token_test.c
 TESTS_SRCS += add_token_to_token_list_test.c
 TESTS_SRCS += delete_token_list_test.c
+TESTS_SRCS += extract_lexem_from_user_input_test.c
 
 UNITY_SRCS := Unity/src/unity.c
 

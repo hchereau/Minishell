@@ -37,6 +37,8 @@ int	main(void)
 	printf("\n");
 	RUN_TEST(test_delete_token_list);
 	printf("\n");
+	RUN_TEST(test_extract_lexem_from_user_input);
+	printf("\n");
 
 	// PARSING
 	RUN_TEST(parsing_bdd_tests);

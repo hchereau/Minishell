@@ -30,6 +30,7 @@ void	test_create_token(void);
 void	test_delete_token(void);
 void	test_add_token_to_token_list(void);
 void	test_delete_token_list(void);
+void	test_extract_lexem_from_user_input(void);
 
 // PARSING
 
