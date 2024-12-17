@@ -36,6 +36,7 @@ int	main(void)
 	RUN_TEST(test_add_token_to_token_list);
 	printf("\n");
 	RUN_TEST(test_delete_token_list);
+	printf("\n");
 
 	// PARSING
 	RUN_TEST(parsing_bdd_tests);

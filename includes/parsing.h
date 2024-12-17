@@ -75,7 +75,6 @@ typedef struct s_token_list
 {
 	t_token			*token_list_first_token;
 	t_token			*token_list_last_token;
-	//t_token_number	tokens_number;
 }				t_token_list;
 
 typedef struct e_lexing_machine
@@ -95,6 +94,8 @@ t_token				*create_token(char *new_token_content,
 t_token_add_status	add_token_to_token_list(t_token_list *token_list,
 						t_token *token_to_add);
 void				delete_token(t_token **token_to_delete);
+void				delete_token_list(t_token_list **list_to_delete,
+						void (*del_funct)(t_token **));
 
 // PARSING
 

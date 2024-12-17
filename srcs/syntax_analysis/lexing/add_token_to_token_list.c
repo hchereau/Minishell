@@ -23,7 +23,6 @@ static t_token_add_status	initialize_token_list(t_token_list *token_list,
 static t_token_add_status	add_token(t_token_list *token_list,
 								t_token *token_to_add)
 {
-
 	token_list->token_list_last_token->next_token = token_to_add;
 	token_to_add->previous_token = token_list->token_list_last_token;
 	token_list->token_list_last_token = token_to_add;

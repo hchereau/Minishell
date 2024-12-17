@@ -12,33 +12,37 @@
 
 #include "tests.h"
 
-void	test_delete_token_list(void)
+void test_delete_token_list(void)
 {
 	printf("Testing lexing: delete_token_list\n");
 
-	//ARRANGE
+	// ARRANGE
 
-	t_token_list	token_list_test;
+	t_token_list token_list_test;
+	t_token_list *token_list_test_ptr = &token_list_test;
 	ft_bzero(&token_list_test, sizeof(t_token_list));
-	t_token			*token_test_1 = create_token("test_1", TOKEN_LIST_START);
-	t_token			*token_test_2 = create_token("test 2", WORD);
-	t_token			*token_test_3 = create_token("test 3", TOKEN_LIST_END);
+
+	t_token *token_test_1 = create_token("test_1", TOKEN_LIST_START);
+	t_token *token_test_2 = create_token("test 2", WORD);
+	t_token *token_test_3 = create_token("test 3", TOKEN_LIST_END);
 
 	add_token_to_token_list(&token_list_test, token_test_1);
 	add_token_to_token_list(&token_list_test, token_test_2);
 	add_token_to_token_list(&token_list_test, token_test_3);
 
 	print_token_list(token_list_test);
-	//ACT
 
-	// delete_token_list(&token_list_test);
+	// ACT
 
-	//ASSERT
+	delete_token_list(&token_list_test_ptr, &delete_token);
 
-	// TEST_ASSERT_EQUAL(NULL, token_list_test.token_list_first_token);
-	// TEST_ASSERT_EQUAL(NULL, token_list_test.token_list_last_token);
-	// TEST_ASSERT_EQUAL(NULL, token_list_test.token_list_first_token);
+	// ASSERT
+
+	TEST_ASSERT_NULL(token_list_test.token_list_first_token);
+	TEST_ASSERT_NULL(token_list_test.token_list_last_token);
+	TEST_ASSERT_NULL(token_list_test_ptr);
 }
+
 
 /*
 
