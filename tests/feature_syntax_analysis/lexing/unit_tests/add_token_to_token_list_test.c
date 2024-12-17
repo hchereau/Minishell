@@ -12,18 +12,10 @@
 
 #include "tests.h"
 
-void	setUp(void)
-{
-	printf("testing lexing: add_token_to_token_list\n\n");
-}
-
-void	tearDown(void)
-{
-	printf('\n');
-}
-
 void	test_add_token_to_token_list(void)
 {
+	printf("Testing lexing: add_token_to_token_list\n");
+
 	//ARRANGE
 	t_token_list	token_list_test;
 	t_token			*first_token = create_token("test 1", TOKEN_LIST_START);

@@ -14,6 +14,8 @@
 
 void	test_delete_token(void)
 {
+	printf("Testing lexing: delete token\n");
+
 	//ASSERT
 	t_token	*token_to_delete = create_token("test", WORD);
 

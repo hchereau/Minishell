@@ -12,18 +12,10 @@
 
 #include "tests.h"
 
-void	setUp(void)
-{
-	printf("testing lexing: create_token\n\n");
-}
-
-void	tearDown(void)
-{
-	printf('\n');
-}
-
 void	test_create_token(void)
 {
+	printf("Testing lexing: create_token\n");
+
 	//ARRANGE
 	char			*new_token_content = "Hello test";
 	const t_token_type	new_token_type = WORD;

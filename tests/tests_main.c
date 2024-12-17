@@ -12,14 +12,26 @@
 
 #include "tests.h"
 
+void setUp(void)
+{
+
+}
+void tearDown(void)
+{
+
+}
+
 int	main(void)
 {
 	UNITY_BEGIN();
 
 	//LEXING
 	RUN_TEST(lexing_bdd_tests);
+	printf("\n");
 	RUN_TEST(test_create_token);
+	printf("\n");
 	RUN_TEST(test_add_token_to_token_list);
+	printf("\n");
 
 	// PARSING
 	RUN_TEST(parsing_bdd_tests);

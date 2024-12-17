@@ -23,16 +23,6 @@ static void	set_tokens_values(t_token *fst_token, t_token *scnd_token,
 	lst_token->next_token = NULL;
 }
 
-void	setUp(void)
-{
-	printf("testing parsing: simple command / no args\n\n");
-}
-
-void	tearDown(void)
-{
-	printf('\n');
-}
-
 void	test_simple_command_no_options_valid(void)
 {
 	t_token_list		tokenized_input;
@@ -41,6 +31,7 @@ void	test_simple_command_no_options_valid(void)
 	t_token				last_token;
 	t_syntax_status		parser_output;
 
+	printf("Testing parsing: simple command / no options\n");
 	//ARRANGE
 	set_tokens_values(&first_token, &second_token, &last_token);
 	tokenized_input.token_list_first_token = &first_token;

@@ -14,5 +14,6 @@
 
 void	delete_token(t_token *token_to_delete)
 {
-	return (token_to_delete);
+	(void)token_to_delete;
+	return ;
 }
