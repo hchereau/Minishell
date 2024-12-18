@@ -1,5 +1,0 @@
-Script started on 2024-12-12 16:47:34+01:00 [<not executed on terminal>]
-[?2004hSDF$> [?2004l
-exit
-
-Script done on 2024-12-12 16:47:34+01:00 [COMMAND_EXIT_CODE="0"]
