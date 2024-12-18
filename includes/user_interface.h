@@ -6,7 +6,7 @@
 /*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 13:10:49 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 14:28:56 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/12 14:31:09 by hucherea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <signal.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <stdlib.h>
+# include "libft.h"
 
 // DEFINES
 
@@ -27,5 +29,7 @@
 // PROTOTYPES
 
 void	signal_handler(int signum);
+void	received_signal(void);
+void	init_signals(struct sigaction *sa);
 
 #endif

@@ -78,6 +78,8 @@ PATH_INCLUDES_TESTS := includes/
 PATH_INCLUDES_UNITY := ./Unity/src
 
 HEADERS += $(PATH_INCLUDES)minishell.h
+HEADERS += $(PATH_INCLUDES)history.h
+HEADERS += $(PATH_INCLUDES)user_interface.h
 
 ### COMPILATION ################################################################
 

@@ -38,7 +38,9 @@ static int	core_routine(void)
 
 static int	launch_shell(void)
 {
-	signal(SIGINT, signal_handler);
+	struct sigaction	sa;
+
+	init_signals(&sa);
 	return (core_routine());
 }
 
