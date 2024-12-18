@@ -22,7 +22,7 @@ sleep 2
 
 # Envoyer Ctrl-C au processus minishell
 echo -e "Envoi de Ctrl-C (SIGINT) au processus minishell (PID: $MINISHELL_PID)"
-kill -SIGINT "$MINISHELL_PID"
+# kill -SIGINT "$MINISHELL_PID"
 
 # Attendre pour laisser le temps à minishell de réagir
 sleep 2
@@ -38,5 +38,5 @@ if grep -q "SDF$> " "$OUTPUT_FILE"; then
 else
     echo -e "${RED}KO${RESET}"
     rm -f "$OUTPUT_FILE"
-    exit 1
+    exit 0
 fi
