@@ -18,19 +18,17 @@
 # include <signal.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include <stdlib.h>
 
 // DEFINES
 
 # define MSH_PROMPT "SDF$> "
 # define CTRL_D 0
 
-// GLOBAK VARIABLES
-
-volatile sig_atomic_t	g_signal = 0;
-
 // PROTOTYPES
 
 void	signal_handler(int signum);
 void	received_signal(void);
+void	init_signals(struct sigaction *sa);
 
 #endif

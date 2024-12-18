@@ -12,12 +12,15 @@
 
 #include "user_interface.h"
 
-void	received_signal(void)
+void	init_signals(struct sigaction *sa)
 {
-	struct sigaction	s_int;
-	struct sigaction	s_quit;
-
-
+	memset(sa, 0, sizeof(struct sigaction));
+	sa->sa_handler = signal_handler;
+	if (sigaction(SIGINT, sa, NULL) == -1)
+	{
+		perror("sigaction");
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	sigint_routine(void)
