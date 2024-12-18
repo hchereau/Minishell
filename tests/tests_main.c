@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   tests_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:11:56 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/13 17:56:47 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/12 17:52:23 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/14 19:14:00 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "tests.h"
 
-// INCLUDES
+void setUp(void)
+{
 
-# include "history.h"
-# include "libft.h"
-# include "user_interface.h"
-# include "parsing.h"
+}
+void tearDown(void)
+{
 
-# include <stdio.h>
-# include <stdlib.h>
+}
 
-// DEFINES
+int	main(void)
+{
+	UNITY_BEGIN();
 
-# define MSH_LOOP 1
+	// LEXING
 
-// PROTOTYPES
+	RUN_TEST(lexing_bdd_tests);
 
-int		exit_shell_routine(void);
-char	*prompt_gets_user_input(void);
-
-#endif
+	return (UNITY_END());
+}

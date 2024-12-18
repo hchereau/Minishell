@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hucherea <hucherea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:11:39 by hucherea          #+#    #+#             */
-/*   Updated: 2024/12/11 15:44:25 by hucherea         ###   ########.fr       */
+/*   Updated: 2024/12/14 16:25:29 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#ifndef TEST_MODE
 
 static int	main_process(char *user_input_line)
 {
@@ -47,3 +48,4 @@ int	main(void)
 {
 	return (launch_shell());
 }
+#endif
