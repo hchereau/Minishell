@@ -1,24 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   create_start_token.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 15:57:07 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 18:41:10 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/18 20:03:54 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/18 20:04:16 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
-
-// INCLUDES
-
-# include "minishell.h"
-
-// PARSING
-
-//t_syntax_status	syntax_analyser(t_token_list tokenized_input);
-
-#endif
+#include "minishell.h"

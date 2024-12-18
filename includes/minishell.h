@@ -18,6 +18,7 @@
 # include "history.h"
 # include "libft.h"
 # include "user_interface.h"
+# include "lexing.h"
 # include "parsing.h"
 
 # include <stdio.h>

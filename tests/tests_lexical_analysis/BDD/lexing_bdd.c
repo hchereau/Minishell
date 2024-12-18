@@ -14,6 +14,6 @@
 
 void	lexing_bdd_tests(void)
 {
-	test_input_empty_string();
+	test_input_just_a_space();
 }
 //COUCOU LS

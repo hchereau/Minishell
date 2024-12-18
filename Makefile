@@ -12,8 +12,8 @@ PATH_SRCS += srcs/
 PATH_SRCS += srcs/user_interface/
 PATH_SRCS += srcs/history
 PATH_SRCS += srcs/syntax_analysis
-PATH_SRCS += srcs/syntax_analysis/lexing
-PATH_SRCS += srcs/syntax_analysis/parsing
+PATH_SRCS += srcs/lexical_analysis
+PATH_SRCS += srcs/syntax_analysis
 
 SRCS += main.c
 SRCS += exit_shell_routine.c
@@ -27,7 +27,9 @@ SRCS += prompt.c
 
 SRCS += add_history.c
 
-# srcs/syntax_analysis
+# srcs/lexing
+
+SRCS += minishell_lexes_user_command_line.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -36,18 +38,16 @@ vpath %.c $(PATH_SRCS)
 TESTS_NAME := features_tests
 
 TESTS_SRCS_DIR += ./tests
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing/BDD
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing/unit_tests
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/BDD
-TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/unit_tests
+TESTS_SRCS_DIR += ./tests/tests_lexical_analysis
+TESTS_SRCS_DIR += ./tests/tests_syntax_analysis
+TESTS_SRCS_DIR += ./tests/tests_lexical_analysis/BDD
 
 TESTS_SRCS += tests_main.c
 
 # lexing
 
 TESTS_SRCS += lexing_bdd.c
-TESTS_SRCS += lexing_bdd_empty_string.c
+TESTS_SRCS += lexing_bdd_just_a_space.c
 
 # parsing
 
@@ -89,15 +89,15 @@ CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
 
-ifeq ($(sanitize), true)
+ifeq ($(d), 1)
 	CFLAGS += -fsanitize=address,undefined -g3
 endif
 
-ifeq ($(d), 1)
+ifeq ($(d), 2)
 	CFLAGS += -g3
 endif
 
-ifeq ($(d), 2)
+ifeq ($(d), 3)
 	CC = clang
 	CFLAGS = -Weverything
 endif

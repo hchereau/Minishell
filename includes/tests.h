@@ -24,7 +24,7 @@
 // LEXING
 
 void	lexing_bdd_tests(void);
-void	test_input_empty_string(void);
+void	test_input_just_a_space(void);
 
 // PARSING
 
