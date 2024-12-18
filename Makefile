@@ -29,14 +29,6 @@ SRCS += add_history.c
 
 # srcs/syntax_analysis
 
-SRCS += syntax_analyser.c
-SRCS += build_token_list_from_user_input.c
-SRCS += create_token.c
-SRCS += add_token_to_token_list.c
-SRCS += delete_token.c
-SRCS += delete_token_list.c
-SRCS += extract_lexem_from_user_input.c
-
 vpath %.c $(PATH_SRCS)
 
 ### TETS SRCS ################################################################
@@ -52,18 +44,14 @@ TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/unit_tests
 
 TESTS_SRCS += tests_main.c
 
-# syntax analysis
+# lexing
 
-TESTS_SRCS += print_token_list.c
 TESTS_SRCS += lexing_bdd.c
-TESTS_SRCS += parsing_bdd.c
-TESTS_SRCS += test_simple_command_valid.c
 TESTS_SRCS += lexing_bdd_empty_string.c
-TESTS_SRCS += create_token_test.c
-TESTS_SRCS += delete_token_test.c
-TESTS_SRCS += add_token_to_token_list_test.c
-TESTS_SRCS += delete_token_list_test.c
-TESTS_SRCS += extract_lexem_from_user_input_test.c
+
+# parsing
+
+# Unity
 
 UNITY_SRCS := Unity/src/unity.c
 

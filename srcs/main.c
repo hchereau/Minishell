@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minishell.h"
 #ifndef TEST_MODE
-# include "minishell.h"
 
 static int	main_process(char *user_input_line)
 {
