@@ -38,6 +38,8 @@ PATH_INCLUDES := includes/
 PATH_INCLUDES_LIBFT := $(PATH_LIBFT)includes/
 
 HEADERS += $(PATH_INCLUDES)minishell.h
+HEADERS += $(PATH_INCLUDES)history.h
+HEADERS += $(PATH_INCLUDES)user_interface.h
 
 ### COMPILATION ################################################################
 
