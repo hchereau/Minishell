@@ -14,7 +14,7 @@
 
 void	init_signals(struct sigaction *sa)
 {
-	memset(sa, 0, sizeof(struct sigaction));
+	ft_memset(sa, 0, sizeof(struct sigaction));
 	sa->sa_handler = signal_handler;
 	if (sigaction(SIGINT, sa, NULL) == -1)
 	{
