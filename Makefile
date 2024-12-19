@@ -32,6 +32,8 @@ SRCS += add_history.c
 SRCS += minishell_lexes_user_command_line.c
 SRCS += add_token_to_token_list.c
 SRCS += create_token.c
+SRCS += print_token.c
+SRCS += print_token_list.c
 
 vpath %.c $(PATH_SRCS)
 
@@ -50,6 +52,7 @@ TESTS_SRCS += tests_main.c
 
 TESTS_SRCS += lexing_bdd.c
 TESTS_SRCS += lexing_bdd_just_a_space.c
+TESTS_SRCS += lexing_bdd_just_one_char.c
 
 # parsing
 

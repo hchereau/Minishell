@@ -61,5 +61,7 @@ t_token_list	minishell_lexes_user_command_line(const char *user_command_line);
 t_token			*create_token(char *lexem, t_token_type token_type);
 t_token_list	add_token_to_token_list(t_token_list token_list,
 					t_lexem token_lexem, t_token_type token_type);
+void			print_token(void *content);
+void			print_token_list(t_token_list token_list);
 
 #endif

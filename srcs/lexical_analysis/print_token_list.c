@@ -11,3 +11,8 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	print_token_list(t_token_list token_list)
+{
+	ft_lstiter(token_list, &print_token);
+}

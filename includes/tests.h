@@ -25,6 +25,7 @@
 
 void	lexing_bdd_tests(void);
 void	test_input_just_a_space(void);
+void	test_input_just_one_letter(void);
 
 // PARSING
 
