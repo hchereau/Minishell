@@ -19,17 +19,18 @@ sleep 2
 
 # Simuler Ctrl-D en fermant le FIFO
 exec 3>"$FIFO_NAME" && exec 3>&-
+
 # Attendre quelques secondes pour permettre à minishell de traiter l'EOF
 sleep 2
 
 # Vérifier si le processus minishell est toujours en cours
 if ps -p "$MINISHELL_PID" > /dev/null 2>&1; then
-    echo -e "${GREEN}OK${RESET}"
+    echo -e "${RED}KO${RESET}"
     kill "$MINISHELL_PID"
 	rm "$FIFO_NAME"
-    exit 0
-else
-    echo -e "${RED}KO{$RESET}"
-	rm "$FIFO_NAME"
     exit 1
+else
+    echo -e "${GREEN}OK${RESET}"
+	rm "$FIFO_NAME"
+    exit 0
 fi
