@@ -37,7 +37,7 @@ void	test_input_just_a_space(void)
 
 	t_token_list	lexer_output = minishell_lexes_user_command_line(user_input);
 	printf("%p\n", lexer_output);
-
+ 
 	//THEN
 
 	TEST_ASSERT_EQUAL(2, ft_lstsize(lexer_output));
