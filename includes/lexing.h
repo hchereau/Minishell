@@ -23,8 +23,7 @@
 
 //typedefs
 
-typedef t_list		t_token;
-typedef t_list *	t_tokens_list;
+typedef t_list *	t_token_list;
 typedef char *		t_lexem;
 
 // ENUMS
@@ -50,14 +49,17 @@ typedef enum e_syntax_status
 
 // STRUCTURES
 
-typedef struct s_token_content
+typedef struct s_token
 {
 	t_lexem			token_lexem;
 	t_token_type	token_type;
-}				t_token_content;
+}				t_token;
 
 // PROTOTYPES
 
-t_tokens_list	minishell_lexes_user_command_line(char *user_command_line);
+t_token_list	minishell_lexes_user_command_line(const char *user_command_line);
+t_token			*create_token(char *lexem, t_token_type token_type);
+t_token_list	add_token_to_token_list(t_token_list token_list,
+					t_lexem token_lexem, t_token_type token_type);
 
 #endif

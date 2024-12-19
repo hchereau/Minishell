@@ -12,17 +12,17 @@
 
 #include "tests.h"
 
-static int		check_lexing_result(t_tokens_list lexer_output)
+static int		check_lexing_result(t_token_list lexer_output)
 {
 	if (lexer_output == NULL)
 		return (EXIT_FAILURE);
 
-	t_token_content	*first_token_content = (t_token_content *)lexer_output->content;
-	t_token_content	*second_token_content = (t_token_content *)lexer_output->next->content;
+	t_token	*first_token = (t_token *)lexer_output->content;
+	t_token	*second_token = (t_token *)lexer_output->next->content;
 
-	if (first_token_content->token_type != TOKEN_LIST_START)
+	if (first_token->token_type != TOKEN_LIST_START)
 		return (EXIT_FAILURE);
-	if (second_token_content->token_type != TOKEN_LIST_END)
+	if (second_token->token_type != TOKEN_LIST_END)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
@@ -35,11 +35,12 @@ void	test_input_just_a_space(void)
 
 	//WHEN
 
-	t_tokens_list	lexer_output = minishell_lexes_user_command_line(user_input);
+	t_token_list	lexer_output = minishell_lexes_user_command_line(user_input);
 	printf("%p\n", lexer_output);
 
 	//THEN
 
+	TEST_ASSERT_EQUAL(2, ft_lstsize(lexer_output));
 	TEST_ASSERT_EQUAL(EXIT_SUCCESS, check_lexing_result(lexer_output));
 }
 /*
