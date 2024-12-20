@@ -20,6 +20,11 @@ t_token_list	minishell_lexes_user_command_line(const char *user_command_line)
 	tokenized_command_line = NULL;
 	tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
 		TOKEN_LIST_START);
+	if (*user_command_line == '|')
+	{
+		tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
+		PIPE);
+	}
 	tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
 		TOKEN_LIST_END);
 	return (tokenized_command_line);

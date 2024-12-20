@@ -17,11 +17,10 @@ void	test_input_just_one_letter(void)
 	//ARRANGE
 
 	t_token_type	token_1 = TOKEN_LIST_START;
-	t_token_type	token_2 = WORD;
+	t_token_type	token_2 = PIPE;
 	t_token_type	token_3 = TOKEN_LIST_END;
-	char			expected_lexem = 'a';
 
-	char	*user_input = "a";
+	char	*user_input = "|";
 
 	//WHEN
 
@@ -32,15 +31,16 @@ void	test_input_just_one_letter(void)
 	t_token_list	current;
 
 	current = lexer_output;
-	//TEST_ASSERT_EQUAL(3, ft_lstsize(lexer_output));
+	TEST_ASSERT_EQUAL(3, ft_lstsize(lexer_output));
 	TEST_ASSERT_EQUAL(token_1, ((t_token *)current->content)->token_type);
-	TEST_ASSERT_EQUAL(expected_lexem, ((t_token*)current->content)->token_type);
 	current = (t_token_list)current->next;
-	TEST_ASSERT_EQUAL(token_2, (t_token*)current->content);
+	TEST_ASSERT_EQUAL(token_2, ((t_token*)current->content)->token_type);
 	current = (t_token_list)current->next;
-	TEST_ASSERT_EQUAL(token_3, (t_token*)current->content);
+	TEST_ASSERT_EQUAL(token_3, ((t_token*)current->content)->token_type);
 
 	//to_print
+
+	print_token_list(lexer_output);
 
 	//to_clear
 }

@@ -19,6 +19,8 @@
 
 // DEFINES
 
+# define LEXER_DICTIONARY "|"
+
 // TYPEDEFS
 
 //typedefs
