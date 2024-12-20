@@ -48,6 +48,10 @@ t_token_list	tokenizer(const char *user_command_line,
 			tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
 				INPUT_REDIR_OPERATOR);
 		}
+		else if (user_command_line[i] == '>')
+		{
+			tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL, OUTPUT_REDIR_OPERATOR);
+		}
 		if (tokenized_command_line == NULL)
 			return (NULL);
 		++i;

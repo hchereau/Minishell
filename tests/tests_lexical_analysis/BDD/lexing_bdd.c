@@ -17,5 +17,6 @@ void	lexing_bdd_tests(void)
 	test_input_just_a_space();
 	test_input_just_one_letter();
 	test_input_pipe_and_input_redir();
+	test_input_pipe_and_redirs();
 }
 //COUCOU LS

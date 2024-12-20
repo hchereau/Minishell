@@ -14,7 +14,7 @@
 
 void	print_token(void *content)
 {
-	char	*token_types[] = {"TOKEN_LIST_START", "TOKEN_LIST_END", "WORD", "PIPE", "INPUT_REDIR_OPERATOR"};
+	char	*token_types[] = {"TOKEN_LIST_START", "TOKEN_LIST_END", "WORD", "PIPE", "INPUT_REDIR_OPERATOR", "OUTPUT_REDIR_OPERATOR"};
 	t_token	*token = (t_token *)content;
 	if (token != NULL)
 	{
