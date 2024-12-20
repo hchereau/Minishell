@@ -26,6 +26,9 @@
 void	lexing_bdd_tests(void);
 void	test_input_just_a_space(void);
 void	test_input_just_one_letter(void);
+void	test_input_pipe_and_input_redir(void);
+
+void	test_create_token(void);
 
 // PARSING
 

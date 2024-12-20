@@ -45,6 +45,7 @@ TESTS_SRCS_DIR += ./tests
 TESTS_SRCS_DIR += ./tests/tests_lexical_analysis
 TESTS_SRCS_DIR += ./tests/tests_syntax_analysis
 TESTS_SRCS_DIR += ./tests/tests_lexical_analysis/BDD
+TESTS_SRCS_DIR += ./tests/tests_lexical_analysis/unit_tests
 
 TESTS_SRCS += tests_main.c
 
@@ -53,6 +54,9 @@ TESTS_SRCS += tests_main.c
 TESTS_SRCS += lexing_bdd.c
 TESTS_SRCS += lexing_bdd_just_a_space.c
 TESTS_SRCS += lexing_bdd_just_one_char.c
+TESTS_SRCS += lexing_bdd_pipe_and_input_redir.c
+
+TESTS_SRCS += test_create_token.c
 
 # parsing
 
