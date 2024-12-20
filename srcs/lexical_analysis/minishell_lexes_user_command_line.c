@@ -30,6 +30,34 @@ static t_token_list	start_tokenization(t_token_list tokenized_command_line)
 	return (token_list);
 }
 
+t_token_type	search_in_lexer_dictionary(const char operator)
+{
+	t_token_type	type;
+	size_t			i;
+
+	i = 0;
+	while (LEXER_DICTIONARY[i] != '\0')
+	{
+		if (LEXER_DICTIONARY[i] == operator)
+		{
+			type = i;
+			return (type);
+		}
+	}
+	return (FAILURE);
+}
+
+t_token_list	tokenize_operator(const char operator,
+					t_token_list tokenized_command_line)
+{
+	t_token_type	token_type;
+
+	token_type = search_in_lexer_dictionary(operator);
+	tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
+			token_type);
+	return (tokenized_command_line);
+}
+
 t_token_list	tokenizer(const char *user_command_line,
 					t_token_list tokenized_command_line)
 {
@@ -38,6 +66,9 @@ t_token_list	tokenizer(const char *user_command_line,
 	i = 0;
 	while(user_command_line[i] != '\0')
 	{
+		if (is_separator(user_command_line[i] == true))
+			tokenized_command_line = tokenize_separator(user_command_line[i],
+				tokenized_command_line);
 		if (user_command_line[i] == '|')
 		{
 			tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
