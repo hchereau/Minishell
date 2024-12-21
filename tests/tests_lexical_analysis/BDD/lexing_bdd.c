@@ -22,5 +22,7 @@ void	lexing_bdd_tests(void)
 	test_input_pipe_and_input_redir();
 	printf("\nTOKEN LISTE TEST PIPE AND REDIRECTIONS:\n\n");
 	test_input_pipe_and_redirs();
+	printf("\nTOKEN LISTE TEST OPERATORS AND ONE CHAR 'a':\n\n");
+	test_input_operators_and_one_char();
 }
 //COUCOU LS

@@ -41,6 +41,9 @@ static t_token_list	tokenizer(const char *user_command_line,
 			if (tokenized_command_line == NULL)
 				return (NULL);
 		}
+		if (user_command_line[i] == 'a')
+			add_token_to_token_list(tokenized_command_line,
+			ft_strdup(&user_command_line[i]), WORD);
 		++i;
 	}
 	return (tokenized_command_line);
