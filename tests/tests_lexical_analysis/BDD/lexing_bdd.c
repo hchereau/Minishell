@@ -14,9 +14,13 @@
 
 void	lexing_bdd_tests(void)
 {
+	printf("\nTOKEN LISTE TEST EMPTY:\n\n");
 	test_input_just_a_space();
+	printf("\nTOKEN LISTE TEST PIPE:\n\n");
 	test_input_just_one_letter();
+	printf("\nTOKEN LISTE TEST PIPE AND INPUT REDIR:\n\n");
 	test_input_pipe_and_input_redir();
+	printf("\nTOKEN LISTE TEST PIPE AND REDIRECTIONS:\n\n");
 	test_input_pipe_and_redirs();
 }
 //COUCOU LS

@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_token.c                                      :+:      :+:    :+:   */
+/*   tokenize_operator.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 19:54:43 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/19 19:55:00 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/21 15:31:14 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/21 15:31:22 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	print_token(void *content)
+t_token_list	tokenize_operator(const char operator,
+					t_token_list tokenized_command_line)
 {
-	char	*token_types[] = {"PIPE", "INPUT_REDIR", "OUTPUT_REDIR", "APPEND_OPERATOR", "HEREDOC", "UNKNOWN OPERATOR", "TOKEN_LIST_START", "TOKEN_LIST_END", "WORD"};
-	t_token	*token = (t_token *)content;
-	if (token != NULL)
+	t_token_type	token_type;
+
+	if (is_space(operator) != true)
 	{
-		printf("Lexem: %s\n", token->token_lexem);
-		printf("Type: %s\n", token_types[token->token_type]);
-		printf("\n");
+		token_type = search_operator_in_lexer_dictionary(operator);
+		tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
+															token_type);
 	}
+	return (tokenized_command_line);
 }

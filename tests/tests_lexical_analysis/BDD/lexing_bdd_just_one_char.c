@@ -40,7 +40,6 @@ void	test_input_just_one_letter(void)
 
 	//to_print
 
-	printf("\nTOKEN LISTE TEST PIPE:\n\n");
 	print_token_list(lexer_output);
 
 	//to_clear

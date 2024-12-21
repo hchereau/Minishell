@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_token.c                                      :+:      :+:    :+:   */
+/*   lexer_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/19 19:54:43 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/19 19:55:00 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/21 15:33:28 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/21 15:33:44 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	print_token(void *content)
+bool	is_space(const char current_char)
 {
-	char	*token_types[] = {"PIPE", "INPUT_REDIR", "OUTPUT_REDIR", "APPEND_OPERATOR", "HEREDOC", "UNKNOWN OPERATOR", "TOKEN_LIST_START", "TOKEN_LIST_END", "WORD"};
-	t_token	*token = (t_token *)content;
-	if (token != NULL)
+	return (current_char == ' ');
+}
+
+bool	is_separator(const char current_char)
+{
+	size_t	i;
+
+	i = 0;
+	if (is_space(current_char) == true)
+		return (true);
+	while (LEXER_DICTIONARY[i] != '\0')
 	{
-		printf("Lexem: %s\n", token->token_lexem);
-		printf("Type: %s\n", token_types[token->token_type]);
-		printf("\n");
+		if (LEXER_DICTIONARY[i] == current_char)
+			return (true);
+		++i;
 	}
+	return (false);
 }

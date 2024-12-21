@@ -43,7 +43,6 @@ void	test_input_pipe_and_input_redir(void)
 
 	//to_print
 
-	printf("\nTOKEN LISTE TEST PIPE AND INPUT REDIR:\n\n");
 	print_token_list(lexer_output);
 
 	//to_clear

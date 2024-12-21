@@ -19,7 +19,7 @@
 
 // DEFINES
 
-# define LEXER_DICTIONARY "|"
+# define LEXER_DICTIONARY "|<>"
 
 // TYPEDEFS
 
@@ -38,15 +38,15 @@ typedef enum e_tokenization_status
 
 typedef enum e_token_type
 {
-	TOKEN_LIST_START,
-	TOKEN_LIST_END,
-	WORD,
 	PIPE,
 	INPUT_REDIR_OPERATOR,
 	OUTPUT_REDIR_OPERATOR,
 	APPEND_OPERATOR,
 	HEREDOC_OPERATOR,
-	UNKNOWN_OPERATOR
+	UNKNOWN_OPERATOR,
+	TOKEN_LIST_START,
+	TOKEN_LIST_END,
+	WORD
 }			t_token_type;
 
 typedef enum e_syntax_status
@@ -71,5 +71,11 @@ t_token_list	add_token_to_token_list(t_token_list token_list,
 					t_lexem token_lexem, t_token_type token_type);
 void			print_token(void *content);
 void			print_token_list(t_token_list token_list);
+
+t_token_type	search_operator_in_lexer_dictionary(const char operator);
+t_token_list	tokenize_operator(const char operator,
+					t_token_list tokenized_command_line);
+bool			is_separator(const char current_char);
+bool			is_space(const char current_char);
 
 #endif

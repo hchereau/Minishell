@@ -46,7 +46,6 @@ void	test_input_pipe_and_redirs(void)
 
 	//to_print
 
-	printf("\nTOKEN LISTE TEST PIPE AND REDIRECTIONS:\n\n");
 	print_token_list(lexer_output);
 
 	//to_clear

@@ -30,7 +30,7 @@
 
 // PROTOTYPES
 
-int		exit_shell_routine(void);
-char	*prompt_gets_user_input(void);
+int				exit_shell_routine(void);
+char			*prompt_gets_user_input(void);
 
 #endif
