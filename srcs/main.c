@@ -40,7 +40,7 @@ static int	launch_shell(void)
 {
 	struct sigaction	sa;
 
-	init_signals(&sa);
+	setup_signals(&sa);
 	return (core_routine());
 }
 

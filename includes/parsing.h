@@ -32,7 +32,6 @@ typedef enum e_machine_state
 	STRING_END
 }			t_machine_state;
 
-
 typedef enum e_token_type
 {
 	TOKEN_LIST_START,
