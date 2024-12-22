@@ -14,6 +14,7 @@ PATH_SRCS += srcs/history
 PATH_SRCS += srcs/syntax_analysis
 PATH_SRCS += srcs/syntax_analysis/lexing
 PATH_SRCS += srcs/syntax_analysis/parsing
+PATH_SRCS += srcs/environment
 
 SRCS += main.c
 SRCS += exit_shell_routine.c
@@ -29,6 +30,10 @@ SRCS += add_history.c
 
 # srcs/syntax_analysis
 
+# srcs/environment
+
+SRCS += env_builtin.c
+
 vpath %.c $(PATH_SRCS)
 
 ### TETS SRCS ################################################################
@@ -41,6 +46,7 @@ TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing/BDD
 TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/lexing/unit_tests
 TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/BDD
 TESTS_SRCS_DIR += ./tests/feature_syntax_analysis/parsing/unit_tests
+TESTS_SRCS_DIR += ./tests/environment
 
 TESTS_SRCS += tests_main.c
 
@@ -50,6 +56,10 @@ TESTS_SRCS += lexing_bdd.c
 TESTS_SRCS += lexing_bdd_empty_string.c
 
 # parsing
+
+# environment
+
+TESTS_SRCS += env_builtin.test.c
 
 # Unity
 
@@ -80,6 +90,7 @@ PATH_INCLUDES_UNITY := ./Unity/src
 HEADERS += $(PATH_INCLUDES)minishell.h
 HEADERS += $(PATH_INCLUDES)history.h
 HEADERS += $(PATH_INCLUDES)user_interface.h
+HEADERS += $(PATH_INCLUDES)environment.h
 
 ### COMPILATION ################################################################
 
@@ -177,7 +188,9 @@ norminette: $(SRCS) $(HEADERS)
 
 tests: $(LIBFT) $(TESTS_OBJS) $(filter-out $(PATH_OBJS)main.o, $(OBJS)) $(UNITY_SRCS)
 	@echo "$(BLUE)Features tests...$(WHITE)"
-	$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) $^ -o $(TESTS_NAME) -L$(PATH_LIBFT) -lft -DTEST_MODE
+	@$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) $^ -o $(TESTS_NAME) -L$(PATH_LIBFT) -lft -DTEST_MODE $(RL_FLAG)
+	./features_tests
+	@echo "$(GREEN)Features tests passed !$(WHITE)"
 
 #$(CC) $(CFLAGS) $(RL_FLAG) -I $(PATH_INCLUDES_TESTS) -I $(PATH_INCLUDES) -I $(PATH_INCLUDES_UNITY) -I $(PATH_INCLUDES_LIBFT) -o $(TESTS_NAME) $^ -DTEST_MODE
 
