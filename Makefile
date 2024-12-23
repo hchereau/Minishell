@@ -36,6 +36,7 @@ SRCS += print_token.c
 SRCS += print_token_list.c
 
 SRCS += tokenize_operator.c
+SRCS += tokenize_word.c
 SRCS += lexer_utils.c
 
 vpath %.c $(PATH_SRCS)

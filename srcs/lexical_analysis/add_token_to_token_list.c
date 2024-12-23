@@ -21,7 +21,7 @@ t_token_list	add_token_to_token_list(t_token_list token_list,
 	token_to_add = create_token(token_lexem, token_type);
 	if (token_to_add == NULL)
 	{
-		printf("Token_to_add = NULL\n");
+		ft_dprintf(STDERR_FILENO, "Token_to_add = NULL\n");
 		return (NULL);
 	}
 	new_node = ft_lstnew(token_to_add);

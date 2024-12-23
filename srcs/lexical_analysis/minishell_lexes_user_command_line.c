@@ -33,20 +33,23 @@ static t_token_list	build_token_list(const char *input,
 	{
 		if (is_separator(*input) != NULL)
 		{
-			printf("char  == %c\n", *input);
+			//printf("char  == %c\n", *input);
 			++input;
 		}
 		else if (is_operator(*input) != NULL)
 		{
 			token_list = tokenize_operator(&input,
 				token_list);
-			printf("token_char = %c\n", *input);
+			//printf("token_char = %c\n", *input);
 			if (token_list == NULL)
 				return (NULL);
 		}
-		//else
-			//tokenize_word(&input, token_list);
-			//++input;
+		else
+		{
+			token_list = tokenize_word(&input, token_list);
+			if (token_list == NULL)
+				return (NULL);
+		}
 	}
 	return (token_list);
 }

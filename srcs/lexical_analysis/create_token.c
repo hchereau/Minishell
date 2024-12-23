@@ -18,10 +18,13 @@ t_token	*create_token(char *lexem, t_token_type token_type)
 
 	new_token = (t_token *)malloc(sizeof(t_token));
 	if (new_token == NULL)
-		printf("New_token NULL\n");
+		ft_dprintf(STDERR_FILENO, "New_token NULL\n");
 	if (new_token != NULL)
 	{
-		new_token->token_lexem = lexem;
+		if (lexem != NULL)
+			new_token->token_lexem = ft_strdup(lexem);
+		else
+			new_token->token_lexem = NULL;
 		new_token->token_type = token_type;
 	}
 	return (new_token);
