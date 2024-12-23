@@ -35,7 +35,7 @@ void	test_input_just_a_space(void)
 
 	//WHEN
 
-	t_token_list	lexer_output = minishell_lexes_user_command_line(user_input);
+	t_token_list	lexer_output = tokenize(user_input);
 
 	//THEN
 

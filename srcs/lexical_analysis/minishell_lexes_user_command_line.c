@@ -19,50 +19,52 @@ static t_token_list	end_tokenization(t_token_list tokenized_command_line)
 	return (tokenized_command_line);
 }
 
-static t_token_list	start_tokenization(t_token_list tokenized_command_line)
+static t_token_list	start_tokenization(t_token_list token_list)
 {
-	tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
+	token_list = add_token_to_token_list(token_list, NULL,
 		TOKEN_LIST_START);
-	return (tokenized_command_line);
+	return (token_list);
 }
 
-static t_token_list	tokenizer(const char *user_command_line,
-					t_token_list tokenized_command_line)
+static t_token_list	build_token_list(const char *input,
+					t_token_list token_list)
 {
-	size_t			i;
-
-	i = 0;
-	while(user_command_line[i] != '\0')
+	while(!is_input_end(input))
 	{
-		if (is_separator(user_command_line[i]) == true)
+		if (is_separator(*input) != NULL)
 		{
-			tokenized_command_line = tokenize_operator(user_command_line[i],
-				tokenized_command_line);
-			if (tokenized_command_line == NULL)
+			printf("char  == %c\n", *input);
+			++input;
+		}
+		else if (is_operator(*input) != NULL)
+		{
+			token_list = tokenize_operator(&input,
+				token_list);
+			printf("token_char = %c\n", *input);
+			if (token_list == NULL)
 				return (NULL);
 		}
-		if (user_command_line[i] == 'a')
-			add_token_to_token_list(tokenized_command_line,
-			ft_strdup(&user_command_line[i]), WORD);
-		++i;
+		//else
+			//tokenize_word(&input, token_list);
+			//++input;
 	}
-	return (tokenized_command_line);
+	return (token_list);
 }
 
-t_token_list	minishell_lexes_user_command_line(const char *user_command_line)
+t_token_list	tokenize(const char *input)
 {
-	t_token_list	tokenized_command_line;
-	(void)user_command_line;
+	t_token_list	token_list;
+	(void)input;
 
-	tokenized_command_line = NULL;
-	tokenized_command_line = start_tokenization(tokenized_command_line);
-	if (tokenized_command_line != NULL)
+	token_list = NULL;
+	token_list = start_tokenization(token_list);
+	if (token_list != NULL)
 	{
-		tokenized_command_line = tokenizer(user_command_line, tokenized_command_line);
+		token_list = build_token_list(input, token_list);
 	}
-	if (tokenized_command_line != NULL)
+	if (token_list != NULL)
 	{
-		tokenized_command_line = end_tokenization(tokenized_command_line);
+		token_list = end_tokenization(token_list);
 	}
-	return (tokenized_command_line);
+	return (token_list);
 }

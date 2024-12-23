@@ -20,11 +20,11 @@ static void	second_test_with_a_pipe(void)
 	t_token	*token_to_create;
 
 	token_test.token_lexem = NULL;
-	token_test.token_type = PIPE;
+	token_test.token_type = PIPE_OPERATOR;
 
 	//ACT
 
-	token_to_create = create_token(NULL, PIPE);
+	token_to_create = create_token(NULL, PIPE_OPERATOR);
 
 	//ASSERT
 

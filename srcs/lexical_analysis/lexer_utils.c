@@ -12,23 +12,17 @@
 
 #include "minishell.h"
 
-bool	is_space(const char current_char)
+bool	is_input_end(const char *input)
 {
-	return (current_char == ' ');
+	return (*input == '\0');
 }
 
-bool	is_separator(const char current_char)
+char	*is_separator(const char c)
 {
-	size_t	i;
+	return (ft_strchr(SEPARATORS_DICTIONARY, c));
+}
 
-	i = 0;
-	if (is_space(current_char) == true)
-		return (true);
-	while (LEXER_DICTIONARY[i] != '\0')
-	{
-		if (LEXER_DICTIONARY[i] == current_char)
-			return (true);
-		++i;
-	}
-	return (false);
+char	*is_operator(const char c)
+{
+	return (ft_strchr(OPERATORS_DICTIONARY, c));
 }

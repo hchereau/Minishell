@@ -12,16 +12,45 @@
 
 #include "minishell.h"
 
-t_token_list	tokenize_operator(const char operator,
-					t_token_list tokenized_command_line)
+static bool	is_lexem_match(const char *lexem, const char *input)
 {
-	t_token_type	token_type;
+	return (ft_strncmp(lexem, input, ft_strlen(lexem)) == 0);
+}
 
-	if (is_space(operator) != true)
+static t_grammar_element*	find_grammar_element(const char *input)
+{
+	static t_grammar_element grammar_elements[] = {
+		{.token_type = PIPE_OPERATOR, .token_lexem = "|"},
+		{.token_type = HEREDOC_OPERATOR, .token_lexem = "<<"},
+		{.token_type = INPUT_REDIR_OPERATOR, .token_lexem = "<"},
+		{.token_type = APPEND_OPERATOR, .token_lexem = ">>"},
+		{.token_type = OUTPUT_REDIR_OPERATOR, .token_lexem = ">"},
+	};
+	size_t	i;
+
+	i = 0;
+	while (i < ARRAY_SIZE(grammar_elements))
 	{
-		token_type = search_operator_in_lexer_dictionary(operator);
-		tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
-															token_type);
+		if (is_lexem_match(grammar_elements[i].token_lexem, input))
+		{
+			return (&grammar_elements[i]);
+		}
+		++i;
 	}
-	return (tokenized_command_line);
+	return (NULL);
+}
+
+t_token_list	tokenize_operator(const char **input,
+					t_token_list token_list)
+{
+	t_grammar_element*	grammar_element;
+
+	grammar_element = find_grammar_element(*input);
+	if (grammar_element != NULL)
+	{
+		*input += ft_strlen(grammar_element->token_lexem);
+		return (add_token_to_token_list(token_list,
+					grammar_element->token_lexem, grammar_element->token_type));
+	}
+	return (NULL);
 }

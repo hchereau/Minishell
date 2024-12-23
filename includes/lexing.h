@@ -19,7 +19,9 @@
 
 // DEFINES
 
-# define LEXER_DICTIONARY "|<>"
+# define ARRAY_SIZE(array) sizeof(array) / sizeof(*array)
+# define SEPARATORS_DICTIONARY " \t"
+# define OPERATORS_DICTIONARY "|<>"
 
 // TYPEDEFS
 
@@ -38,12 +40,11 @@ typedef enum e_tokenization_status
 
 typedef enum e_token_type
 {
-	PIPE,
+	PIPE_OPERATOR,
 	INPUT_REDIR_OPERATOR,
 	OUTPUT_REDIR_OPERATOR,
 	APPEND_OPERATOR,
 	HEREDOC_OPERATOR,
-	UNKNOWN_OPERATOR,
 	TOKEN_LIST_START,
 	TOKEN_LIST_END,
 	WORD
@@ -63,19 +64,22 @@ typedef struct s_token
 	t_token_type	token_type;
 }				t_token;
 
+typedef	t_token	t_grammar_element;
+
 // PROTOTYPES
 
-t_token_list	minishell_lexes_user_command_line(const char *user_command_line);
 t_token			*create_token(char *lexem, t_token_type token_type);
 t_token_list	add_token_to_token_list(t_token_list token_list,
 					t_lexem token_lexem, t_token_type token_type);
 void			print_token(void *content);
 void			print_token_list(t_token_list token_list);
 
+t_token_list	tokenize(const char *input);
+t_token_list	tokenize_operator(const char **input,
+					t_token_list token_list);
+bool			is_input_end(const char *input);
+char			*is_separator(const char c);
+char			*is_operator(const char c);
 t_token_type	search_operator_in_lexer_dictionary(const char operator);
-t_token_list	tokenize_operator(const char operator,
-					t_token_list tokenized_command_line);
-bool			is_separator(const char current_char);
-bool			is_space(const char current_char);
 
 #endif

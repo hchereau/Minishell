@@ -35,7 +35,6 @@ SRCS += create_token.c
 SRCS += print_token.c
 SRCS += print_token_list.c
 
-SRCS += search_in_lexer_dictionary.c
 SRCS += tokenize_operator.c
 SRCS += lexer_utils.c
 

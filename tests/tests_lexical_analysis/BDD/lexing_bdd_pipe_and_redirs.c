@@ -17,7 +17,7 @@ void	test_input_pipe_and_redirs(void)
 	//ARRANGE
 
 	t_token_type	token_1 = TOKEN_LIST_START;
-	t_token_type	token_2 = PIPE;
+	t_token_type	token_2 = PIPE_OPERATOR;
 	t_token_type	token_3 = INPUT_REDIR_OPERATOR;
 	t_token_type	token_4 = OUTPUT_REDIR_OPERATOR;
 	t_token_type	token_5 = TOKEN_LIST_END;
@@ -26,7 +26,7 @@ void	test_input_pipe_and_redirs(void)
 
 	//WHEN
 
-	t_token_list	lexer_output = minishell_lexes_user_command_line(user_input);
+	t_token_list	lexer_output = tokenize(user_input);
 
 	//THEN
 
