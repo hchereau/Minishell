@@ -32,23 +32,21 @@ static t_token_list	build_token_list(const char *input,
 	while(!is_input_end(input))
 	{
 		if (is_separator(*input) != NULL)
-		{
-			//printf("char  == %c\n", *input);
 			++input;
-		}
 		else if (is_operator(*input) != NULL)
 		{
-			token_list = tokenize_operator(&input,
+			token_list = tokenize_operator(input,
 				token_list);
-			//printf("token_char = %c\n", *input);
 			if (token_list == NULL)
 				return (NULL);
+			input += get_last_lexem_size(token_list);
 		}
 		else
 		{
-			token_list = tokenize_word(&input, token_list);
+			token_list = tokenize_word(input, token_list);
 			if (token_list == NULL)
 				return (NULL);
+			input += get_last_lexem_size(token_list);
 		}
 	}
 	return (token_list);

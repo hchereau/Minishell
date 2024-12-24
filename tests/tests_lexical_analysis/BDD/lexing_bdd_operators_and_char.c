@@ -53,4 +53,6 @@ void	test_input_operators_and_one_char(void)
 	print_token_list(lexer_output);
 
 	//to_clear
+
+	delete_token_list(lexer_output);
 }

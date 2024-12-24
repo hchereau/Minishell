@@ -42,6 +42,8 @@ void	test_input_just_a_space(void)
 	print_token_list(lexer_output);
 	TEST_ASSERT_EQUAL(2, ft_lstsize(lexer_output));
 	TEST_ASSERT_EQUAL(EXIT_SUCCESS, check_lexing_result(lexer_output));
+
+	delete_token_list(lexer_output);
 }
 /*
 

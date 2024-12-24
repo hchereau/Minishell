@@ -40,15 +40,14 @@ static t_grammar_element*	find_grammar_element(const char *input)
 	return (NULL);
 }
 
-t_token_list	tokenize_operator(const char **input,
+t_token_list	tokenize_operator(const char *input,
 					t_token_list token_list)
 {
 	t_grammar_element*	grammar_element;
 
-	grammar_element = find_grammar_element(*input);
+	grammar_element = find_grammar_element(input);
 	if (grammar_element != NULL)
 	{
-		*input += ft_strlen(grammar_element->token_lexem);
 		return (add_token_to_token_list(token_list,
 					grammar_element->token_lexem, grammar_element->token_type));
 	}

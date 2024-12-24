@@ -73,16 +73,19 @@ t_token_list	add_token_to_token_list(t_token_list token_list,
 					t_lexem token_lexem, t_token_type token_type);
 void			print_token(void *content);
 void			print_token_list(t_token_list token_list);
+void			delete_token(void *data);
+void			delete_token_list(t_token_list token_list);
 
 t_token_list	tokenize(const char *input);
-t_token_list	tokenize_operator(const char **input,
+t_token_list	tokenize_operator(const char *input,
 					t_token_list token_list);
-t_token_list	tokenize_word(const char **input,
+t_token_list	tokenize_word(const char *input,
 					t_token_list token_list);
 bool			is_input_end(const char *input);
 char			*is_separator(const char c);
 char			*is_operator(const char c);
 t_token_type	search_operator_in_lexer_dictionary(
 					const char operator);
+size_t			get_last_lexem_size(t_token_list token_list);
 
 #endif

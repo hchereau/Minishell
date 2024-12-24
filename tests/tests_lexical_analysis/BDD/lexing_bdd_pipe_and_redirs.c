@@ -46,8 +46,9 @@ void	test_input_pipe_and_redirs(void)
 
 	//to_print
 
-	lexer_output = tokenize("ls > test1");
 	print_token_list(lexer_output);
 
 	//to_clear
+
+	delete_token_list(lexer_output);
 }

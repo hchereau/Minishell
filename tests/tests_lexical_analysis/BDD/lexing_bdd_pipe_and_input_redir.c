@@ -46,4 +46,6 @@ void	test_input_pipe_and_input_redir(void)
 	print_token_list(lexer_output);
 
 	//to_clear
+
+	delete_token_list(lexer_output);
 }

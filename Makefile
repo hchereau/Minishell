@@ -34,9 +34,12 @@ SRCS += add_token_to_token_list.c
 SRCS += create_token.c
 SRCS += print_token.c
 SRCS += print_token_list.c
+SRCS += delete_token.c
+SRCS += delete_token_list.c
 
 SRCS += tokenize_operator.c
 SRCS += tokenize_word.c
+SRCS += get_last_lexem_size.c
 SRCS += lexer_utils.c
 
 vpath %.c $(PATH_SRCS)

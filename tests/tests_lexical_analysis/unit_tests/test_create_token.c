@@ -28,8 +28,11 @@ static void	second_test_with_a_pipe(void)
 
 	//ASSERT
 
-	TEST_ASSERT_EQUAL(token_test.token_lexem, token_to_create->token_lexem);
+	TEST_ASSERT_EQUAL(NULL, token_to_create->token_lexem);
 	TEST_ASSERT_EQUAL(token_test.token_type, token_to_create->token_type);
+
+	//CLEAN
+	delete_token(token_to_create);
 }
 
 static void	first_test_with_a_word(void)
@@ -48,8 +51,12 @@ static void	first_test_with_a_word(void)
 
 	//ASSERT
 
-	TEST_ASSERT_EQUAL(token_test.token_lexem, token_to_create->token_lexem);
+	TEST_ASSERT_EQUAL(0, ft_strcmp(token_test.token_lexem, token_to_create->token_lexem));
 	TEST_ASSERT_EQUAL(token_test.token_type, token_to_create->token_type);
+
+	//CLEAN
+
+	delete_token(token_to_create);
 }
 
 void	test_create_token(void)

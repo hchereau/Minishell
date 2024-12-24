@@ -43,4 +43,6 @@ void	test_input_just_one_letter(void)
 	print_token_list(lexer_output);
 
 	//to_clear
+
+	delete_token_list(lexer_output);
 }
