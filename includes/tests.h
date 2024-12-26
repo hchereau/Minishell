@@ -25,10 +25,15 @@
 
 void	lexing_bdd_tests(void);
 void	test_input_just_a_space(void);
-void	test_input_just_one_letter(void);
+void	test_input_just_one_pipe(void);
 void	test_input_pipe_and_input_redir(void);
 void	test_input_pipe_and_redirs(void);
 void	test_input_operators_and_one_char(void);
+void	test_input_heredoc(void);
+void	test_input_just_one_word(void);
+void	test_input_two_words(void);
+void	test_input_word_with_double_quotes(void);
+void	test_input_word_with_simple_quotes(void);
 
 void	test_create_token(void);
 

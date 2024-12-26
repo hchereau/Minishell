@@ -64,6 +64,11 @@ TESTS_SRCS += lexing_bdd_just_one_char.c
 TESTS_SRCS += lexing_bdd_pipe_and_input_redir.c
 TESTS_SRCS += lexing_bdd_pipe_and_redirs.c
 TESTS_SRCS += lexing_bdd_operators_and_char.c
+TESTS_SRCS += lexing_bdd_heredoc.c
+TESTS_SRCS += lexing_bdd_just_one_word.c
+TESTS_SRCS += lexing_bdd_two_words.c
+TESTS_SRCS += lexing_bdd_word_with_double_quotes.c
+TESTS_SRCS += lexing_bdd_word_with_simple_quotes.c
 
 TESTS_SRCS += test_create_token.c
 

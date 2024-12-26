@@ -12,7 +12,7 @@
 
 #include "tests.h"
 
-void	test_input_just_one_letter(void)
+void	test_input_just_one_pipe(void)
 {
 	//ARRANGE
 

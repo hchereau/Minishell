@@ -37,10 +37,8 @@ t_token_list	tokenize_word(const char *input, t_token_list token_list)
 			is_operator(input[i]) == NULL)
 	{
 		 i += (skip_quotes(input) + 1);
-		 printf("i == %zu\n", i);
 	}
 	lexem = ft_strndup(input, i);
-	printf("lexem = %s\n", lexem);
 	if (lexem == NULL)
 		return (NULL);
 	token_list = add_token_to_token_list(token_list, lexem, WORD);
