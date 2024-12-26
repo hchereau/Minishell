@@ -25,8 +25,6 @@
 
 // TYPEDEFS
 
-//typedefs
-
 typedef t_list *	t_token_list;
 typedef char *		t_lexem;
 

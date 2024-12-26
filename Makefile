@@ -29,7 +29,7 @@ SRCS += add_history.c
 
 # srcs/lexing
 
-SRCS += minishell_lexes_user_command_line.c
+SRCS += tokenizer.c
 SRCS += add_token_to_token_list.c
 SRCS += create_token.c
 SRCS += print_token.c

@@ -17,8 +17,10 @@
 
 # include "minishell.h"
 
-// PARSING
+// 
 
-//t_syntax_status	syntax_analyser(t_token_list tokenized_input);
+// PROTOTYPES
+
+//t_syntax_status	parser(t_token_list token_list);
 
 #endif
