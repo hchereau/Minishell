@@ -17,8 +17,16 @@
 
 # include "minishell.h"
 
+// ENUMS
+
+typedef enum e_syntax_status
+{
+	VALID_SYNTAX,
+	INVALID_SYNTAX
+}			t_syntax_status;
+
 // PROTOTYPES
 
-//t_syntax_status	parser(t_token_list token_list);
+t_syntax_status	parser(t_token_list token_list);
 
 #endif

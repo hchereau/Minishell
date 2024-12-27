@@ -14,8 +14,7 @@
 
 void	parsing_bdd_valid_syntax(void)
 {
-	test_simple_command_no_options_valid();
-	//test_simple_command_valid(WORD, WORD);
+
 }
 void	parsing_bdd_tests(void)
 {

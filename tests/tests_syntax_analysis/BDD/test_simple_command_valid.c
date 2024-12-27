@@ -12,32 +12,27 @@
 
 #include "tests.h"
 
-static void	set_tokens_values(t_token *fst_token, t_token *scnd_token,
-				t_token *lst_token)
+static void	set_tokens_values(t_token_list token_list, t_token first_token, t_token second_token,
+				t_token last_token)
 {
-	fst_token->token_type = TOKEN_LIST_START;
-	scnd_token->token_type = WORD;
-	lst_token->token_type = TOKEN_LIST_END;
-	fst_token->next_token = scnd_token;
-	scnd_token->next_token = lst_token;
-	lst_token->next_token = NULL;
+	token_list = &first_token;
+	first_token
 }
 
 void	test_simple_command_no_options_valid(void)
 {
-	t_token_list		tokenized_input;
+	t_token_list		token_list;
 	t_token				first_token;
 	t_token				second_token;
 	t_token				last_token;
 	t_syntax_status		parser_output;
 
-	printf("Testing parsing: simple command / no options\n");
+	printf("Testing parsing: just a pipe\n");
 	//ARRANGE
 	set_tokens_values(&first_token, &second_token, &last_token);
-	tokenized_input.token_list_first_token = &first_token;
 
 	//ACT
-	parser_output = syntax_analyser(tokenized_input);
+	parser_output = syntax_analyser();
 
 	//ASSERT
 	TEST_ASSERT_EQUAL(VALID_SYNTAX, parser_output);

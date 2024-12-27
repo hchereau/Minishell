@@ -12,8 +12,8 @@
 
 #include "minishell.h"
 
-t_syntax_status	syntax_analyser(t_token_list tokenized_input)
+t_syntax_status	parser(t_token_list token_list)
 {
-	(void)tokenized_input;
-	return (NO_SYNTAX);
+	(void)token_list;
+	return (VALID_SYNTAX);
 }

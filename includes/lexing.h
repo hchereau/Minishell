@@ -47,12 +47,6 @@ typedef enum e_token_type
 	WORD
 }			t_token_type;
 
-typedef enum e_syntax_status
-{
-	VALID_SYNTAX,
-	INVALID_SYNTAX
-}			t_syntax_status;
-
 // STRUCTURES
 
 typedef struct s_token
