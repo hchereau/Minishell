@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   delete_token_list.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 15:57:07 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 18:41:10 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/24 14:58:46 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/24 14:59:11 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "minishell.h"
 
-// INCLUDES
-
-# include "minishell.h"
-
-// PROTOTYPES
-
-//t_syntax_status	parser(t_token_list token_list);
-
-#endif
+void	delete_token_list(t_token_list token_list)
+{
+	ft_lstclear(&token_list, delete_token);
+}

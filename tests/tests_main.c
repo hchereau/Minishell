@@ -27,7 +27,12 @@ int	main(void)
 
 	// LEXING
 
+	printf("Testing function: create_token\n\n");
+	RUN_TEST(test_create_token);
+	printf("\n");
+	printf("Testing minishell lexer comportments\n\n");
 	RUN_TEST(lexing_bdd_tests);
+	printf("\n");
 
 	return (UNITY_END());
 }

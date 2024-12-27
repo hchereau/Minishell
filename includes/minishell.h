@@ -18,6 +18,7 @@
 # include "history.h"
 # include "libft.h"
 # include "user_interface.h"
+# include "lexing.h"
 # include "parsing.h"
 
 # include <stdio.h>
@@ -27,9 +28,18 @@
 
 # define MSH_LOOP 1
 
+// STRUCTURES
+
+typedef struct s_minishell
+{
+	char			*user_input_line;
+	t_token_list	tokenized_user_input_line;
+}				t_minishell;
+
 // PROTOTYPES
 
-int		exit_shell_routine(void);
-char	*prompt_gets_user_input(void);
+int				exit_shell_routine(void);
+char			*prompt_gets_user_input(void);
+t_lexing_status	lexical_analyse(t_minishell *minishell_data);
 
 #endif

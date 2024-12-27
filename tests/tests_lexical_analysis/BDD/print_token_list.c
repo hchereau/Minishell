@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexing_bdd.c                                       :+:      :+:    :+:   */
+/*   print_token_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 19:12:54 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 17:57:49 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/19 19:59:59 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/19 20:00:11 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests.h"
+#include "minishell.h"
 
-void	lexing_bdd_tests(void)
+void	print_token_list(t_token_list token_list)
 {
-	test_input_empty_string();
+	ft_lstiter(token_list, &print_token);
 }
-//COUCOU LS

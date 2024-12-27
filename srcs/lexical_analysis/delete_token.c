@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   delete_token.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 15:57:07 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 18:41:10 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/24 14:54:24 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/24 14:54:36 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-# define PARSING_H
+#include "minishell.h"
 
-// INCLUDES
+void	delete_token(void *data)
+{
+	t_token	*token_to_delete;
 
-# include "minishell.h"
-
-// PROTOTYPES
-
-//t_syntax_status	parser(t_token_list token_list);
-
-#endif
+	token_to_delete = (t_token *)data;
+	free(token_to_delete->token_lexem);
+	free(token_to_delete);
+}
