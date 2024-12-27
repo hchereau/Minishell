@@ -43,7 +43,7 @@ static int	launch_shell(void)
 	struct sigaction	sa;
 
 	ft_bzero(&minishell_data, sizeof(minishell_data));
-	init_signals(&sa);
+	setup_signals(&sa);
 	return (core_routine(&minishell_data));
 }
 
