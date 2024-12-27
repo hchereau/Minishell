@@ -29,11 +29,14 @@ SRCS += add_history.c
 
 # srcs/lexing
 
+SRCS += lexical_analyse.c
 SRCS += tokenizer.c
 SRCS += add_token_to_token_list.c
 SRCS += create_token.c
 SRCS += delete_token.c
 SRCS += delete_token_list.c
+# SRCS += print_token.c
+# SRCS += print_token_list.c
 
 SRCS += tokenize_operator.c
 SRCS += tokenize_word.c
@@ -69,8 +72,6 @@ TESTS_SRCS += lexing_bdd_word_with_double_quotes.c
 TESTS_SRCS += lexing_bdd_word_with_simple_quotes.c
 
 TESTS_SRCS += test_create_token.c
-TESTS_SRCS += print_token.c
-TESTS_SRCS += print_token_list.c
 
 # parsing
 

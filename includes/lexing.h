@@ -30,11 +30,11 @@ typedef char *		t_lexem;
 
 // ENUMS
 
-typedef enum e_tokenization_status
+typedef enum e_lexing_status
 {
-	TOKENIZATION_FAIL,
-	TOKENIZATION_DONE
-}			t_tokenization_status;
+	LEXING_SUCCESS,
+	LEXING_FAILURE
+}			t_lexing_status;
 
 typedef enum e_token_type
 {

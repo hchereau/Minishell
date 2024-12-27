@@ -51,5 +51,6 @@ t_token_list	tokenize_operator(const char *input,
 		return (add_token_to_token_list(token_list,
 				grammar_element->token_lexem, grammar_element->token_type));
 	}
-	return (NULL);
+	else
+		return (NULL);
 }

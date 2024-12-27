@@ -13,35 +13,38 @@
 #include "minishell.h"
 #ifndef TEST_MODE
 
-static int	main_process(char *user_input_line)
+static int	main_process(t_minishell *minishell_data)
 {
-	if (user_input_line == CTRL_D)
-	{
+	if (minishell_data->user_input_line == CTRL_D)
 		exit_shell_routine();
+	if (lexical_analyse(minishell_data) == LEXING_FAILURE)
+	{
+		ft_dprintf(STDERR_FILENO, "Memory allocation failure during lexing.\n");
+		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
 }
 
-static int	core_routine(void)
+static int	core_routine(t_minishell *minishell_data)
 {
-	char	*user_input_line;
-
-	user_input_line = NULL;
 	while (MSH_LOOP)
 	{
-		user_input_line = prompt_gets_user_input();
-		main_process(user_input_line);
-		free(user_input_line);
+		minishell_data->user_input_line = prompt_gets_user_input();
+		main_process(minishell_data);
+		free(minishell_data->user_input_line);
+		delete_token_list(minishell_data->tokenized_user_input_line);
 	}
 	return (EXIT_SUCCESS);
 }
 
 static int	launch_shell(void)
 {
+	t_minishell			minishell_data;
 	struct sigaction	sa;
 
+	ft_bzero(&minishell_data, sizeof(minishell_data));
 	init_signals(&sa);
-	return (core_routine());
+	return (core_routine(&minishell_data));
 }
 
 int	main(void)
