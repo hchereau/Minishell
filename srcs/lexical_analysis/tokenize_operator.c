@@ -27,9 +27,11 @@ static t_grammar_element	*find_grammar_element(const char *input)
 	{.token_type = OUTPUT_REDIR_OPERATOR, .token_lexem = ">"},
 	};
 	size_t						i;
+	size_t						array_size;
 
 	i = 0;
-	while (i < ARRAY_SIZE(grammar_elements))
+	array_size = sizeof(grammar_elements) / sizeof(*grammar_elements);
+	while (i < array_size)
 	{
 		if (is_lexem_match(grammar_elements[i].token_lexem, input))
 		{

@@ -36,7 +36,6 @@ typedef struct s_minishell
 	t_token_list	tokenized_user_input_line;
 }				t_minishell;
 
-
 // PROTOTYPES
 
 int				exit_shell_routine(void);

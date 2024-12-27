@@ -15,11 +15,10 @@
 
 // INCLUDES
 
-#include "minishell.h"
+# include "minishell.h"
 
 // DEFINES
 
-# define ARRAY_SIZE(array) sizeof(array) / sizeof(*array)
 # define SEPARATORS_DICTIONARY " \t"
 # define OPERATORS_DICTIONARY "|<>"
 
@@ -62,7 +61,7 @@ typedef struct s_token
 	t_token_type	token_type;
 }				t_token;
 
-typedef	t_token	t_grammar_element;
+typedef t_token		t_grammar_element;
 
 // PROTOTYPES
 
