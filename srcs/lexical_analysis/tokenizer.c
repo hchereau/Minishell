@@ -14,29 +14,29 @@
 
 static t_token_list	end_tokenization(t_token_list tokenized_command_line)
 {
-	tokenized_command_line = add_token_to_token_list(tokenized_command_line, NULL,
-		TOKEN_LIST_END);
+	tokenized_command_line = add_token_to_token_list(tokenized_command_line,
+			NULL, TOKEN_LIST_END);
 	return (tokenized_command_line);
 }
 
 static t_token_list	start_tokenization(t_token_list token_list)
 {
 	token_list = add_token_to_token_list(token_list, NULL,
-		TOKEN_LIST_START);
+			TOKEN_LIST_START);
 	return (token_list);
 }
 
 static t_token_list	build_token_list(const char *input,
 					t_token_list token_list)
 {
-	while(!is_input_end(input))
+	while (!is_input_end(input))
 	{
 		if (is_separator(*input) != NULL)
 			++input;
 		else if (is_operator(*input) != NULL)
 		{
 			token_list = tokenize_operator(input,
-				token_list);
+					token_list);
 			if (token_list == NULL)
 				return (NULL);
 			input += get_last_lexem_size(token_list);
@@ -55,7 +55,6 @@ static t_token_list	build_token_list(const char *input,
 t_token_list	tokenize(const char *input)
 {
 	t_token_list	token_list;
-	(void)input;
 
 	token_list = NULL;
 	token_list = start_tokenization(token_list);

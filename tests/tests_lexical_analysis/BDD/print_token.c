@@ -14,8 +14,8 @@
 
 void	print_token(void *content)
 {
-	char	*token_types[] = {"PIPE", "INPUT_REDIR", "OUTPUT_REDIR", "APPEND_OPERATOR", "HEREDOC", "TOKEN_LIST_START", "TOKEN_LIST_END", "WORD"};
-	t_token	*token = (t_token *)content;
+	const char	*token_types[] = {"PIPE", "INPUT_REDIR", "OUTPUT_REDIR", "APPEND_OPERATOR", "HEREDOC", "TOKEN_LIST_START", "TOKEN_LIST_END", "WORD"};
+	const t_token	*token = (t_token *)content;
 	if (token != NULL)
 	{
 		printf("Lexem: %s\n", token->token_lexem);

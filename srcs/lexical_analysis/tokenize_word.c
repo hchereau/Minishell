@@ -12,9 +12,9 @@
 
 #include "minishell.h"
 
-static size_t skip_quotes(const char *input)
+static size_t	skip_quotes(const char *input)
 {
-	const char *next;
+	const char	*next;
 
 	next = NULL;
 	if (*input == '\'')
@@ -32,11 +32,11 @@ t_token_list	tokenize_word(const char *input, t_token_list token_list)
 	t_lexem	lexem;
 
 	i = 0;
-	while (is_input_end(input + i) == false &&
-			is_separator(input[i]) ==  NULL &&
-			is_operator(input[i]) == NULL)
+	while (is_input_end(input + i) == false
+		&& is_separator(input[i]) == NULL
+		&& is_operator(input[i]) == NULL)
 	{
-		 i += (skip_quotes(input) + 1);
+		i += (skip_quotes(input) + 1);
 	}
 	lexem = ft_strndup(input, i);
 	if (lexem == NULL)

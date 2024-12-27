@@ -17,16 +17,16 @@ static bool	is_lexem_match(const char *lexem, const char *input)
 	return (ft_strncmp(lexem, input, ft_strlen(lexem)) == 0);
 }
 
-static t_grammar_element*	find_grammar_element(const char *input)
+static t_grammar_element	*find_grammar_element(const char *input)
 {
-	static t_grammar_element grammar_elements[] = {
-		{.token_type = PIPE_OPERATOR, .token_lexem = "|"},
-		{.token_type = HEREDOC_OPERATOR, .token_lexem = "<<"},
-		{.token_type = INPUT_REDIR_OPERATOR, .token_lexem = "<"},
-		{.token_type = APPEND_OPERATOR, .token_lexem = ">>"},
-		{.token_type = OUTPUT_REDIR_OPERATOR, .token_lexem = ">"},
+	static t_grammar_element	grammar_elements[] = {
+	{.token_type = PIPE_OPERATOR, .token_lexem = "|"},
+	{.token_type = HEREDOC_OPERATOR, .token_lexem = "<<"},
+	{.token_type = INPUT_REDIR_OPERATOR, .token_lexem = "<"},
+	{.token_type = APPEND_OPERATOR, .token_lexem = ">>"},
+	{.token_type = OUTPUT_REDIR_OPERATOR, .token_lexem = ">"},
 	};
-	size_t	i;
+	size_t						i;
 
 	i = 0;
 	while (i < ARRAY_SIZE(grammar_elements))
@@ -43,13 +43,13 @@ static t_grammar_element*	find_grammar_element(const char *input)
 t_token_list	tokenize_operator(const char *input,
 					t_token_list token_list)
 {
-	t_grammar_element*	grammar_element;
+	t_grammar_element	*grammar_element;
 
 	grammar_element = find_grammar_element(input);
 	if (grammar_element != NULL)
 	{
 		return (add_token_to_token_list(token_list,
-					grammar_element->token_lexem, grammar_element->token_type));
+				grammar_element->token_lexem, grammar_element->token_type));
 	}
 	return (NULL);
 }

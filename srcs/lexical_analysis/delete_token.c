@@ -14,8 +14,9 @@
 
 void	delete_token(void *data)
 {
-	t_token *	token_to_delete = (t_token *)data;
+	t_token	*token_to_delete;
 
+	token_to_delete = (t_token *)data;
 	free(token_to_delete->token_lexem);
 	free(token_to_delete);
 }
