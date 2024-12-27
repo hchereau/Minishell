@@ -17,8 +17,6 @@
 
 # include "minishell.h"
 
-// 
-
 // PROTOTYPES
 
 //t_syntax_status	parser(t_token_list token_list);
