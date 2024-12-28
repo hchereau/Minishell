@@ -12,42 +12,64 @@
 
 #include "minishell.h"
 
-// static t_types_matching_status	search_if_following_type_is_matching(
-// 			t_token_type current_token_type, t_token_type next_token_type)
+// static void	display_syntax_error(const t_token_list invalid_token)
 // {
+// 	const t_token	*invalid_token_content = (t_token *)invalid_token->content;
 
+// 	ft_dprintf(STDERR_FILENO, "C dla merde %s\n", invalid_token_content->token_lexem);
 // }
+
+static t_token_type	*get_possibilities_list(const t_token_type token_type)
+{
+	static t_token_type	following_possibilities[][9] = {
+		{PIPE_OPERATOR, INVALID_TOKEN},
+		{INPUT_REDIR_OPERATOR, INVALID_TOKEN},
+		{OUTPUT_REDIR_OPERATOR, INVALID_TOKEN},
+		{APPEND_OPERATOR, INVALID_TOKEN},
+		{HEREDOC_OPERATOR, INVALID_TOKEN},
+		//START
+		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
+		//WORD
+		{TOKEN_LIST_END, INVALID_TOKEN},
+		{WORD, INVALID_TOKEN},
+	};
+
+	return (following_possibilities[token_type]);
+}
 
 static t_types_matching_status check_tokens_types(
 			t_token_type current_token_type,
 			t_token_type next_token_type)
 {
-	const t_token_type	*possibilities_array =
+	const t_token_type	*possibilities_list =
 							get_possibilities_list(current_token_type);
 	size_t				i;
 
 	i = 0;
-	while (possibilities_array[i] != NULL)
+	while (possibilities_list[i] != INVALID_TOKEN)
 	{
-		if (next_token_type == possibilities_array[i])
-			return (MATCH);
+		if (next_token_type == possibilities_list[i])
+			return (MATCH_FOUND);
 		++i;
 	}
 	return (NO_MATCH_FOUND);
 }
 
-static t_syntax_status	check_tokens_sequence(t_token_list *current_token)
+static t_syntax_status	check_tokens_sequence(t_token_list token)
 {
-	t_token_type	current_token_type;
-	t_token_type	next_token_type;
+	t_token*	current_token;
+	t_token*	next_token;
 
-	current_token_type = ((t_token *)(*current_token)->content)->token_type;
-	if (current_token_type == TOKEN_LIST_END)
+	current_token = (t_token *)token->content;
+	if (current_token->token_type == TOKEN_LIST_END)
+	{
 		return (VALID_SYNTAX);
-	next_token_type = ((t_token *)(*current_token)->next->content)->token_type;
-	if (check_tokens_types(current_token_type, next_token_type) == NO_MATCH)
+	}
+	next_token = (t_token *)token->next->content;
+	if (check_tokens_types(current_token->token_type, next_token->token_type) == NO_MATCH_FOUND)
+	{
 		return (INVALID_SYNTAX);
-	*current_token = (t_token_list *)(*current_token)->next;
+	}
 	return (PARSING_IN_PROGRESS);
 }
 
@@ -56,12 +78,18 @@ t_syntax_status	parser(t_token_list token_list)
 	t_token_list	current_token;
 	t_syntax_status	parser_output;
 
+	current_token = token_list;
+	print_token_list(current_token);
 	parser_output = PARSING_IN_PROGRESS;
 	while (parser_output == PARSING_IN_PROGRESS)
 	{
-		parser_output = check_tokens_sequence(&current_token);
+		parser_output = check_tokens_sequence(current_token);
+		current_token = current_token->next;
 	}
-	if (parser_output == INVALID_SYNTAX)
-		display_syntax_error(current_token);
+	printf("PO = %d\n", parser_output);
+	// if (parser_output == INVALID_SYNTAX)
+	// 	display_syntax_error(current_token);
+	// return (parser_output);
+	delete_token_list(token_list);
 	return (parser_output);
 }

@@ -18,12 +18,13 @@ void	test_input_just_a_pipe(void)
 	//ARRANGE
 
 	t_syntax_status	parser_output;
-	t_token_list	token_list = tokenize("|");
+	t_token_list	token_list = tokenize("word");
 
 	print_token_list(token_list);
 
 	//ACT
 	parser_output = parser(token_list);
+	//print_token_list(token_list);
 
 	//ASSERT
 	TEST_ASSERT_EQUAL(INVALID_SYNTAX, parser_output);

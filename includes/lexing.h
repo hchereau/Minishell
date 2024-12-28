@@ -31,7 +31,7 @@ typedef char *		t_lexem;
 
 typedef enum e_types_matching_status
 {
-	MATCH,
+	MATCH_FOUND,
 	NO_MATCH_FOUND
 }			t_types_matching_status;
 
@@ -50,7 +50,8 @@ typedef enum e_token_type
 	HEREDOC_OPERATOR,
 	TOKEN_LIST_START,
 	TOKEN_LIST_END,
-	WORD
+	WORD,
+	INVALID_TOKEN
 }			t_token_type;
 
 // STRUCTURES
