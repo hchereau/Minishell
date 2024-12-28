@@ -12,32 +12,22 @@
 
 #include "tests.h"
 
-static void	set_tokens_values(t_token_list token_list, t_token first_token, t_token second_token,
-				t_token last_token)
+void	test_input_just_a_pipe(void)
 {
-	token_list = &first_token;
-	first_token
-}
-
-void	test_simple_command_no_options_valid(void)
-{
-	t_token_list		token_list;
-	t_token				first_token;
-	t_token				second_token;
-	t_token				last_token;
-	t_syntax_status		parser_output;
-
 	printf("Testing parsing: just a pipe\n");
 	//ARRANGE
-	set_tokens_values(&first_token, &second_token, &last_token);
+
+	t_syntax_status	parser_output;
+	t_token_list	token_list = tokenize("|");
+
+	print_token_list(token_list);
 
 	//ACT
-	parser_output = syntax_analyser();
+	parser_output = parser(token_list);
 
 	//ASSERT
-	TEST_ASSERT_EQUAL(VALID_SYNTAX, parser_output);
+	TEST_ASSERT_EQUAL(INVALID_SYNTAX, parser_output);
 }
-
 
 /*
 

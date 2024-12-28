@@ -12,11 +12,11 @@
 
 #include "tests.h"
 
-void	parsing_bdd_valid_syntax(void)
+static void	parsing_bdd_invalid_syntax(void)
 {
-
+	test_input_just_a_pipe();
 }
 void	parsing_bdd_tests(void)
 {
-	parsing_bdd_valid_syntax();
+	parsing_bdd_invalid_syntax();
 }

@@ -34,5 +34,10 @@ int	main(void)
 	RUN_TEST(lexing_bdd_tests);
 	printf("\n");
 
+	// PARSING
+
+	printf("Testing minishell parser comportments\n\n");
+	RUN_TEST(parsing_bdd_tests);
+
 	return (UNITY_END());
 }

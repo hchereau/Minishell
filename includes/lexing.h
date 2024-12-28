@@ -29,6 +29,12 @@ typedef char *		t_lexem;
 
 // ENUMS
 
+typedef enum e_types_matching_status
+{
+	MATCH,
+	NO_MATCH_FOUND
+}			t_types_matching_status;
+
 typedef enum e_lexing_status
 {
 	LEXING_SUCCESS,
