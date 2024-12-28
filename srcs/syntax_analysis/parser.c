@@ -26,12 +26,13 @@ static t_token_type	*get_possibilities_list(const t_token_type token_type)
 		{INPUT_REDIR_OPERATOR, INVALID_TOKEN},
 		{OUTPUT_REDIR_OPERATOR, INVALID_TOKEN},
 		{APPEND_OPERATOR, INVALID_TOKEN},
-		{HEREDOC_OPERATOR, INVALID_TOKEN},
+		//START?
+		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
 		//START
 		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
 		//WORD
 		{TOKEN_LIST_END, INVALID_TOKEN},
-		{WORD, INVALID_TOKEN},
+		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
 	};
 
 	return (following_possibilities[token_type]);
@@ -61,6 +62,7 @@ static t_syntax_status	check_tokens_sequence(t_token_list token)
 	t_token*	next_token;
 
 	current_token = (t_token *)token->content;
+	printf("TT = %d\n", current_token->token_type);
 	if (current_token->token_type == TOKEN_LIST_END)
 	{
 		return (VALID_SYNTAX);
