@@ -33,7 +33,7 @@ static t_token_type	*get_possibilities_list(const t_token_type token_type)
 		//HEREDOC
 		{WORD, INVALID_TOKEN},
 		//START
-		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
+		{WORD, TOKEN_LIST_END, HEREDOC_OPERATOR, INVALID_TOKEN},
 		//END
 		{TOKEN_LIST_END, INVALID_TOKEN},
 		//WORD
@@ -92,10 +92,10 @@ t_syntax_status	parser(t_token_list token_list)
 	{
 		parser_output = check_tokens_sequence(current_token);
 		if (parser_output != INVALID_SYNTAX)
-			current_token = current_token->next;
+		current_token = current_token->next;
 	}
 	if (parser_output == INVALID_SYNTAX)
-		display_syntax_error(current_token);
+		display_syntax_error(current_token->next);
 	return (parser_output);
 	delete_token_list(token_list);
 	return (parser_output);

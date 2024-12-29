@@ -18,7 +18,7 @@ void	test_input_two_pipes(void)
 	//ARRANGE
 
 	t_syntax_status	parser_output;
-	t_token_list	token_list = tokenize("||");
+	t_token_list	token_list = tokenize("<<");
 
 	print_token_list(token_list);
 
