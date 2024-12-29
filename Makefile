@@ -81,7 +81,9 @@ TESTS_SRCS += test_create_token.c
 # parsing
 
 TESTS_SRCS += parsing_bdd.c
+TESTS_SRCS += test_empty_string.c
 TESTS_SRCS += test_just_a_pipe.c
+TESTS_SRCS += test_two_pipes.c
 
 # Unity
 

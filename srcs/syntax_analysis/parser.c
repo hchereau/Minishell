@@ -12,27 +12,34 @@
 
 #include "minishell.h"
 
-// static void	display_syntax_error(const t_token_list invalid_token)
-// {
-// 	const t_token	*invalid_token_content = (t_token *)invalid_token->content;
+static void	display_syntax_error(const t_token_list invalid_token)
+{
+	const t_token	*invalid_token_content = (t_token *)invalid_token->content;
 
-// 	ft_dprintf(STDERR_FILENO, "C dla merde %s\n", invalid_token_content->token_lexem);
-// }
+	ft_dprintf(STDERR_FILENO, "C dla merde %s\n", invalid_token_content->token_lexem);
+}
 
 static t_token_type	*get_possibilities_list(const t_token_type token_type)
 {
 	static t_token_type	following_possibilities[][9] = {
-		{PIPE_OPERATOR, INVALID_TOKEN},
-		{INPUT_REDIR_OPERATOR, INVALID_TOKEN},
-		{OUTPUT_REDIR_OPERATOR, INVALID_TOKEN},
-		{APPEND_OPERATOR, INVALID_TOKEN},
-		//START?
-		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
+		//PIPE
+		{WORD, INVALID_TOKEN},
+		//INPUT_REDIR
+		{WORD, INVALID_TOKEN},
+		//OUTPUT_REDIR
+		{WORD, INVALID_TOKEN},
+		//APPEND
+		{WORD, INVALID_TOKEN},
+		//HEREDOC
+		{WORD, INVALID_TOKEN},
 		//START
 		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
-		//WORD
+		//END
 		{TOKEN_LIST_END, INVALID_TOKEN},
-		{WORD, TOKEN_LIST_END, INVALID_TOKEN},
+		//WORD
+		{PIPE_OPERATOR, INPUT_REDIR_OPERATOR,
+		OUTPUT_REDIR_OPERATOR, APPEND_OPERATOR, HEREDOC_OPERATOR,
+		TOKEN_LIST_END, WORD, INVALID_TOKEN},
 	};
 
 	return (following_possibilities[token_type]);
@@ -62,7 +69,6 @@ static t_syntax_status	check_tokens_sequence(t_token_list token)
 	t_token*	next_token;
 
 	current_token = (t_token *)token->content;
-	printf("TT = %d\n", current_token->token_type);
 	if (current_token->token_type == TOKEN_LIST_END)
 	{
 		return (VALID_SYNTAX);
@@ -81,17 +87,16 @@ t_syntax_status	parser(t_token_list token_list)
 	t_syntax_status	parser_output;
 
 	current_token = token_list;
-	print_token_list(current_token);
 	parser_output = PARSING_IN_PROGRESS;
 	while (parser_output == PARSING_IN_PROGRESS)
 	{
 		parser_output = check_tokens_sequence(current_token);
-		current_token = current_token->next;
+		if (parser_output != INVALID_SYNTAX)
+			current_token = current_token->next;
 	}
-	printf("PO = %d\n", parser_output);
-	// if (parser_output == INVALID_SYNTAX)
-	// 	display_syntax_error(current_token);
-	// return (parser_output);
+	if (parser_output == INVALID_SYNTAX)
+		display_syntax_error(current_token);
+	return (parser_output);
 	delete_token_list(token_list);
 	return (parser_output);
 }

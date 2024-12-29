@@ -18,7 +18,7 @@ void	test_input_just_a_pipe(void)
 	//ARRANGE
 
 	t_syntax_status	parser_output;
-	t_token_list	token_list = tokenize("word");
+	t_token_list	token_list = tokenize("|");
 
 	print_token_list(token_list);
 
