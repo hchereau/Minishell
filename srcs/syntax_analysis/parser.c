@@ -24,7 +24,8 @@ static t_token_type	*get_possibilities_list(const t_token_type token_type)
 {
 	static t_token_type	following_possibilities[][9] = {
 		//PIPE
-	{WORD, INVALID_TOKEN},
+	{INPUT_REDIR_OPERATOR, OUTPUT_REDIR_OPERATOR,
+		APPEND_OPERATOR, HEREDOC_OPERATOR, WORD, INVALID_TOKEN},
 		//INPUT_REDIR
 	{WORD, INVALID_TOKEN},
 		//OUTPUT_REDIR
@@ -34,7 +35,8 @@ static t_token_type	*get_possibilities_list(const t_token_type token_type)
 		//HEREDOC
 	{WORD, INVALID_TOKEN},
 		//START
-	{WORD, TOKEN_LIST_END, HEREDOC_OPERATOR, INVALID_TOKEN},
+	{INPUT_REDIR_OPERATOR, OUTPUT_REDIR_OPERATOR, APPEND_OPERATOR,
+		HEREDOC_OPERATOR, TOKEN_LIST_END, WORD, INVALID_TOKEN},
 		//END
 	{TOKEN_LIST_END, INVALID_TOKEN},
 		//WORD
@@ -94,11 +96,9 @@ t_syntax_status	parser(t_token_list token_list)
 	{
 		parser_output = check_tokens_sequence(current_token);
 		if (parser_output != INVALID_SYNTAX)
-		current_token = current_token->next;
+			current_token = current_token->next;
 	}
 	if (parser_output == INVALID_SYNTAX)
 		display_syntax_error(current_token->next);
-	return (parser_output);
-	delete_token_list(token_list);
 	return (parser_output);
 }

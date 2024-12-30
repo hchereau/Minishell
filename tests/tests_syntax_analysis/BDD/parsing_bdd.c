@@ -26,4 +26,5 @@ void	parsing_bdd_tests(void)
 {
 	parsing_bdd_invalid_syntax();
 	parsing_bdd_valid_syntax();
+	test_free();
 }
