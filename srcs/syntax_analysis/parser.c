@@ -17,28 +17,28 @@ static void	display_syntax_error(const t_token_list invalid_token)
 	const t_token	*invalid_token_content = (t_token *)invalid_token->content;
 
 	ft_dprintf(STDERR_FILENO, "minishell: syntax error near"
-	" unexpected token `%s'\n", invalid_token_content->token_lexem);
+		" unexpected token `%s'\n", invalid_token_content->token_lexem);
 }
 
 static t_token_type	*get_possibilities_list(const t_token_type token_type)
 {
 	static t_token_type	following_possibilities[][9] = {
 		//PIPE
-		{WORD, INVALID_TOKEN},
+	{WORD, INVALID_TOKEN},
 		//INPUT_REDIR
-		{WORD, INVALID_TOKEN},
+	{WORD, INVALID_TOKEN},
 		//OUTPUT_REDIR
-		{WORD, INVALID_TOKEN},
+	{WORD, INVALID_TOKEN},
 		//APPEND
-		{WORD, INVALID_TOKEN},
+	{WORD, INVALID_TOKEN},
 		//HEREDOC
-		{WORD, INVALID_TOKEN},
+	{WORD, INVALID_TOKEN},
 		//START
-		{WORD, TOKEN_LIST_END, HEREDOC_OPERATOR, INVALID_TOKEN},
+	{WORD, TOKEN_LIST_END, HEREDOC_OPERATOR, INVALID_TOKEN},
 		//END
-		{TOKEN_LIST_END, INVALID_TOKEN},
+	{TOKEN_LIST_END, INVALID_TOKEN},
 		//WORD
-		{PIPE_OPERATOR, INPUT_REDIR_OPERATOR,
+	{PIPE_OPERATOR, INPUT_REDIR_OPERATOR,
 		OUTPUT_REDIR_OPERATOR, APPEND_OPERATOR, HEREDOC_OPERATOR,
 		TOKEN_LIST_END, WORD, INVALID_TOKEN},
 	};
@@ -46,12 +46,12 @@ static t_token_type	*get_possibilities_list(const t_token_type token_type)
 	return (following_possibilities[token_type]);
 }
 
-static t_types_matching_status check_tokens_types(
+static t_types_matching_status	check_tokens_types(
 			t_token_type current_token_type,
 			t_token_type next_token_type)
 {
-	const t_token_type	*possibilities_list =
-							get_possibilities_list(current_token_type);
+	const t_token_type	*possibilities_list
+		= get_possibilities_list(current_token_type);
 	size_t				i;
 
 	i = 0;
@@ -66,8 +66,8 @@ static t_types_matching_status check_tokens_types(
 
 static t_syntax_status	check_tokens_sequence(t_token_list token)
 {
-	t_token*	current_token;
-	t_token*	next_token;
+	t_token	*current_token;
+	t_token	*next_token;
 
 	current_token = (t_token *)token->content;
 	if (current_token->token_type == TOKEN_LIST_END)
@@ -75,7 +75,8 @@ static t_syntax_status	check_tokens_sequence(t_token_list token)
 		return (VALID_SYNTAX);
 	}
 	next_token = (t_token *)token->next->content;
-	if (check_tokens_types(current_token->token_type, next_token->token_type) == NO_MATCH_FOUND)
+	if (check_tokens_types(current_token->token_type,
+			next_token->token_type) == NO_MATCH_FOUND)
 	{
 		return (INVALID_SYNTAX);
 	}
