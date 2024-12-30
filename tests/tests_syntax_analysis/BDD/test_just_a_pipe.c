@@ -28,6 +28,9 @@ void	test_input_just_a_pipe(void)
 
 	//ASSERT
 	TEST_ASSERT_EQUAL(INVALID_SYNTAX, parser_output);
+
+	//CLEAN
+	delete_token_list(token_list);
 }
 
 /*

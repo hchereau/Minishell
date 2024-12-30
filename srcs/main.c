@@ -17,9 +17,14 @@ static int	main_process(t_minishell *minishell_data)
 {
 	if (minishell_data->user_input_line == CTRL_D)
 		exit_shell_routine();
-	if (lexical_analyse(minishell_data) == LEXING_FAILURE)
+	if (lexical_analysis(minishell_data) == LEXING_FAILURE)
 	{
 		ft_dprintf(STDERR_FILENO, "Memory allocation failure during lexing.\n");
+		return (EXIT_FAILURE);
+	}
+	if (syntaxic_analysis(minishell_data->tokenized_user_input_line)
+		== INVALID_SYNTAX)
+	{
 		return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);

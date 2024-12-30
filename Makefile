@@ -29,7 +29,7 @@ SRCS += add_history.c
 
 # srcs/lexing
 
-SRCS += lexical_analyse.c
+SRCS += lexical_analysis.c
 SRCS += tokenizer.c
 SRCS += add_token_to_token_list.c
 SRCS += create_token.c
@@ -45,6 +45,7 @@ SRCS += lexer_utils.c
 
 # srcs/parsing
 
+SRCS += syntax_analysis.c
 SRCS += parser.c
 
 vpath %.c $(PATH_SRCS)
