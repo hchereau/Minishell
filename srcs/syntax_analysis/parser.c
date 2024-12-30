@@ -16,7 +16,8 @@ static void	display_syntax_error(const t_token_list invalid_token)
 {
 	const t_token	*invalid_token_content = (t_token *)invalid_token->content;
 
-	ft_dprintf(STDERR_FILENO, "C dla merde %s\n", invalid_token_content->token_lexem);
+	ft_dprintf(STDERR_FILENO, "minishell: syntax error near"
+	" unexpected token `%s'\n", invalid_token_content->token_lexem);
 }
 
 static t_token_type	*get_possibilities_list(const t_token_type token_type)

@@ -12,11 +12,11 @@
 
 #include "minishell.h"
 
-static t_token_list	end_tokenization(t_token_list tokenized_command_line)
+static t_token_list	end_tokenization(t_token_list input)
 {
-	tokenized_command_line = add_token_to_token_list(tokenized_command_line,
+	input = add_token_to_token_list(input,
 			"newline", TOKEN_LIST_END);
-	return (tokenized_command_line);
+	return (input);
 }
 
 static t_token_list	start_tokenization(t_token_list token_list)

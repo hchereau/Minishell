@@ -14,7 +14,7 @@
 
 void	test_input_two_pipes(void)
 {
-	printf("Testing parsing: just a pipe\n");
+	printf("Testing parsing: two pipes\n");
 	//ARRANGE
 
 	t_syntax_status	parser_output;
