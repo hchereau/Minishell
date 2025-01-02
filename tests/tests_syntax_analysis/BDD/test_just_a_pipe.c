@@ -12,37 +12,26 @@
 
 #include "tests.h"
 
-static void	set_tokens_values(t_token *fst_token, t_token *scnd_token,
-				t_token *lst_token)
+void	test_input_just_a_pipe(void)
 {
-	fst_token->token_type = TOKEN_LIST_START;
-	scnd_token->token_type = WORD;
-	lst_token->token_type = TOKEN_LIST_END;
-	fst_token->next_token = scnd_token;
-	scnd_token->next_token = lst_token;
-	lst_token->next_token = NULL;
-}
-
-void	test_simple_command_no_options_valid(void)
-{
-	t_token_list		tokenized_input;
-	t_token				first_token;
-	t_token				second_token;
-	t_token				last_token;
-	t_syntax_status		parser_output;
-
-	printf("Testing parsing: simple command / no options\n");
+	printf("Testing parsing: just a pipe\n");
 	//ARRANGE
-	set_tokens_values(&first_token, &second_token, &last_token);
-	tokenized_input.token_list_first_token = &first_token;
+
+	t_syntax_status	parser_output;
+	t_token_list	token_list = tokenize("|");
+
+	print_token_list(token_list);
 
 	//ACT
-	parser_output = syntax_analyser(tokenized_input);
+	parser_output = parser(token_list);
+	//print_token_list(token_list);
 
 	//ASSERT
-	TEST_ASSERT_EQUAL(VALID_SYNTAX, parser_output);
-}
+	TEST_ASSERT_EQUAL(INVALID_SYNTAX, parser_output);
 
+	//CLEAN
+	delete_token_list(token_list);
+}
 
 /*
 

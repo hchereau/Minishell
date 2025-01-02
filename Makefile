@@ -29,7 +29,7 @@ SRCS += add_history.c
 
 # srcs/lexing
 
-SRCS += lexical_analyse.c
+SRCS += lexical_analysis.c
 SRCS += tokenizer.c
 SRCS += add_token_to_token_list.c
 SRCS += create_token.c
@@ -43,6 +43,11 @@ SRCS += tokenize_word.c
 SRCS += get_last_lexem_size.c
 SRCS += lexer_utils.c
 
+# srcs/parsing
+
+SRCS += syntax_analysis.c
+SRCS += parser.c
+
 vpath %.c $(PATH_SRCS)
 
 ### TETS SRCS ################################################################
@@ -54,6 +59,7 @@ TESTS_SRCS_DIR += ./tests/tests_lexical_analysis
 TESTS_SRCS_DIR += ./tests/tests_syntax_analysis
 TESTS_SRCS_DIR += ./tests/tests_lexical_analysis/BDD
 TESTS_SRCS_DIR += ./tests/tests_lexical_analysis/unit_tests
+TESTS_SRCS_DIR += ./tests/tests_syntax_analysis/BDD
 
 TESTS_SRCS += tests_main.c
 
@@ -74,6 +80,12 @@ TESTS_SRCS += lexing_bdd_word_with_simple_quotes.c
 TESTS_SRCS += test_create_token.c
 
 # parsing
+
+TESTS_SRCS += parsing_bdd.c
+TESTS_SRCS += test_empty_string.c
+TESTS_SRCS += test_just_a_pipe.c
+TESTS_SRCS += test_two_pipes.c
+TESTS_SRCS += free_parser_test.c
 
 # Unity
 

@@ -29,6 +29,12 @@ typedef char *		t_lexem;
 
 // ENUMS
 
+typedef enum e_types_matching_status
+{
+	MATCH_FOUND,
+	NO_MATCH_FOUND
+}			t_types_matching_status;
+
 typedef enum e_lexing_status
 {
 	LEXING_SUCCESS,
@@ -44,14 +50,9 @@ typedef enum e_token_type
 	HEREDOC_OPERATOR,
 	TOKEN_LIST_START,
 	TOKEN_LIST_END,
-	WORD
+	WORD,
+	INVALID_TOKEN
 }			t_token_type;
-
-typedef enum e_syntax_status
-{
-	VALID_SYNTAX,
-	INVALID_SYNTAX
-}			t_syntax_status;
 
 // STRUCTURES
 

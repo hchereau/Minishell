@@ -39,4 +39,10 @@ void	test_create_token(void);
 
 // PARSING
 
+void	parsing_bdd_tests(void);
+void	test_input_empty_string(void);
+void	test_input_just_a_pipe(void);
+void	test_input_two_pipes(void);
+void	test_free(void);
+
 #endif

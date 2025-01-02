@@ -12,12 +12,19 @@
 
 #include "tests.h"
 
-void	parsing_bdd_valid_syntax(void)
+static void parsing_bdd_valid_syntax(void)
 {
-	test_simple_command_no_options_valid();
-	//test_simple_command_valid(WORD, WORD);
+	test_input_empty_string();
+}
+
+static void	parsing_bdd_invalid_syntax(void)
+{
+	test_input_just_a_pipe();
+	test_input_two_pipes();
 }
 void	parsing_bdd_tests(void)
 {
+	parsing_bdd_invalid_syntax();
 	parsing_bdd_valid_syntax();
+	test_free();
 }

@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   syntax_analyser.c                                  :+:      :+:    :+:   */
+/*   lexical_analyse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tchobert <tchobert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tchobert <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 21:05:13 by tchobert          #+#    #+#             */
-/*   Updated: 2024/12/14 17:15:22 by tchobert         ###   ########.fr       */
+/*   Created: 2024/12/27 14:11:02 by tchobert          #+#    #+#             */
+/*   Updated: 2024/12/27 14:11:21 by tchobert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-t_syntax_status	syntax_analyser(t_token_list tokenized_input)
+t_lexing_status	lexical_analysis(t_minishell *minishell_data)
 {
-	(void)tokenized_input;
-	return (NO_SYNTAX);
+	minishell_data->tokenized_user_input_line
+		= tokenize(minishell_data->user_input_line);
+	if (minishell_data->tokenized_user_input_line == NULL)
+		return (LEXING_FAILURE);
+	return (LEXING_SUCCESS);
 }
